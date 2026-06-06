@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<!--
+  ╔══════════════════════════════════════════════════════════════════╗
+  ║  DESIGN SURVIVOR · DOWNLOADABLE PORTFOLIO TEMPLATE               ║
+  ║                                                                  ║
+  ║  Structure modeled after Gloria Lo (glorialo.design).            ║
+  ║  Case study scaffolding from CareerFoundry's UX portfolio guide. ║
+  ║                                                                  ║
+  ║  HOW TO USE:                                                     ║
+  ║  1. Open this file in any text editor (VS Code, Sublime).        ║
+  ║  2. Find each {{PLACEHOLDER}} and replace with your own content. ║
+  ║  3. Search for ★ comments — they mark the sections that matter.  ║
+  ║  4. Drop your images into an /img folder next to this file.      ║
+  ║  5. Host on GitHub Pages, Vercel, Netlify, or save as PDF.       ║
+  ║                                                                  ║
+  ║  Aim: 3 strong case studies + a clear voice. Not 10 weak ones.   ║
+  ╚══════════════════════════════════════════════════════════════════╝
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{YOUR NAME}} — Designer</title>
+<meta name="description" content="{{One sentence — what you do, in plain language}}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FAFAF7;
+    --ink: #1A1A1A;
+    --muted: #6B6B6B;
+    --line: rgba(0,0,0,0.1);
+    --accent: #2A3557;       /* Change to make it yours. Suggested: a single brand color. */
+    --max-w: 1080px;
+    --gap: clamp(24px, 5vw, 64px);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  a:hover { opacity: 0.65; }
+
+  h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
+  h1 { font-size: clamp(40px, 6vw, 72px); }
+  h2 { font-size: clamp(28px, 4vw, 44px); margin-bottom: 24px; }
+  h3 { font-size: clamp(20px, 2.5vw, 28px); margin-bottom: 12px; }
+
+  p { margin-bottom: 16px; }
+  p:last-child { margin-bottom: 0; }
+
+  .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+  /* ── Nav ───────────────────────────────────────────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(250,250,247,0.92); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 18px; padding-bottom: 18px;
+  }
+  nav .brand { font-weight: 600; font-size: 16px; }
+  nav .links { display: flex; gap: 28px; font-size: 14px; }
+
+  /* ── Hero ──────────────────────────────────────────────────── */
+  .hero { padding: clamp(80px, 14vw, 160px) 0 clamp(60px, 10vw, 120px); }
+  .hero .hook { font-family: 'Fraunces', serif; font-size: clamp(40px, 7vw, 88px); line-height: 1.05; margin-bottom: 32px; max-width: 900px; }
+  .hero .hook em { font-style: italic; color: var(--accent); }
+  .hero .bio { font-size: clamp(18px, 2vw, 22px); max-width: 620px; color: var(--muted); line-height: 1.55; }
+
+  /* ── Sections ──────────────────────────────────────────────── */
+  section { padding: clamp(60px, 9vw, 120px) 0; border-top: 1px solid var(--line); }
+  section .section-label { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
+
+  /* ── Work grid ─────────────────────────────────────────────── */
+  .work-grid { display: grid; gap: clamp(32px, 5vw, 56px); }
+  .case-card {
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); align-items: center;
+    padding: clamp(24px, 4vw, 48px) 0;
+  }
+  .case-card:nth-child(even) .case-img { order: 2; }
+  .case-img {
+    aspect-ratio: 4 / 3; background: #EAEAE3 center/cover no-repeat; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
+  }
+  .case-text .case-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .case-text h3 { margin-bottom: 16px; }
+  .case-text .case-line { font-size: 17px; line-height: 1.55; color: var(--muted); margin-bottom: 20px; }
+  .case-text .case-link { font-size: 14px; font-weight: 500; border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+
+  /* ── Case study page-within-page ───────────────────────────── */
+  .case-study {
+    padding: clamp(48px, 8vw, 96px) 0; border-top: 1px solid var(--line);
+  }
+  .case-study .cs-meta {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px; padding: 24px 0; margin-bottom: 40px;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .case-study .cs-meta div { font-size: 13px; }
+  .case-study .cs-meta strong { display: block; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .case-study .cs-block { margin-bottom: 48px; max-width: 720px; }
+  .case-study .cs-block h3 { margin-bottom: 16px; }
+  .case-study .cs-figure { margin: 32px 0; }
+  .case-study .cs-figure img, .case-study .cs-figure .cs-figure-placeholder {
+    width: 100%; aspect-ratio: 16 / 9; background: #EAEAE3; border-radius: 6px;
+    display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
+  }
+  /* Embedded media (video, iframes, PDF objects) fit the figure slot cleanly */
+  .case-study .cs-figure iframe,
+  .case-study .cs-figure video,
+  .case-study .cs-figure embed,
+  .case-study .cs-figure object {
+    width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; border: 0; display: block; background: #1A1A1A;
+  }
+  .case-study .cs-figure object[type="application/pdf"],
+  .case-study .cs-figure embed[type="application/pdf"] {
+    aspect-ratio: 3 / 4; min-height: 480px; background: #EAEAE3;
+  }
+  .case-study .cs-figure figcaption { font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .case-study .cs-outcome {
+    background: #fff; border: 1px solid var(--line); border-radius: 8px;
+    padding: 32px; margin-top: 32px;
+  }
+  .case-study .cs-outcome h4 { font-family: 'Fraunces', serif; font-size: 22px; margin-bottom: 12px; }
+
+  /* ── About ─────────────────────────────────────────────────── */
+  .about-grid { display: grid; grid-template-columns: 1fr 2fr; gap: var(--gap); align-items: start; }
+  .about-photo {
+    aspect-ratio: 4 / 5; background: #EAEAE3; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
+  }
+  .about-text p { font-size: 17px; line-height: 1.65; margin-bottom: 16px; }
+
+  /* ── Inspiration Collection (Dear Data form) ───────────────── */
+  .inspiration {
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); align-items: center;
+  }
+  .inspiration img, .inspiration .insp-placeholder {
+    width: 100%; aspect-ratio: 4 / 5; background: #EAEAE3 center/cover no-repeat; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
+  }
+  .inspiration .insp-text p { color: var(--muted); }
+  .inspiration .insp-legend { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  .inspiration-table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 14px; }
+  .inspiration-table th, .inspiration-table td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  .inspiration-table th { background: rgba(0,0,0,0.04); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+  .inspiration-table td.num { text-align: center; width: 36px; opacity: 0.5; font-variant-numeric: tabular-nums; }
+  .inspiration-table td.seminal { text-align: center; white-space: nowrap; font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.05em; }
+  .inspiration-side-label { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; margin: 32px 0 8px; color: var(--ink); }
+  .inspiration-side-label small { font-weight: 400; font-size: 13px; color: var(--muted); margin-left: 8px; font-family: 'Inter', sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* Concept-tag reference (collapsible) */
+  .concept-ref {
+    margin: 12px 0 24px; border: 1px solid var(--line); border-radius: 6px;
+    padding: 0 16px; background: rgba(0,0,0,0.02);
+  }
+  .concept-ref summary {
+    cursor: pointer; font-weight: 600; font-size: 14px; padding: 14px 0;
+    user-select: none; list-style: none; position: relative; padding-left: 22px;
+  }
+  .concept-ref summary::before {
+    content: '▸'; position: absolute; left: 4px; top: 14px; font-size: 12px;
+    color: var(--muted); transition: transform 0.15s;
+  }
+  .concept-ref[open] summary::before { transform: rotate(90deg); }
+  .concept-ref summary::-webkit-details-marker { display: none; }
+  .concept-ref h4 {
+    font-family: 'Fraunces', serif; font-size: 16px; font-weight: 600;
+    margin: 16px 0 8px; color: var(--ink);
+  }
+  .concept-ref dl {
+    display: grid; grid-template-columns: minmax(160px, max-content) 1fr;
+    gap: 6px 18px; font-size: 13px; margin: 4px 0 16px; padding-left: 4px;
+  }
+  .concept-ref dt { font-weight: 600; color: var(--ink); }
+  .concept-ref dd { margin: 0; color: var(--muted); line-height: 1.5; }
+  @media (max-width: 600px) {
+    .concept-ref dl { grid-template-columns: 1fr; gap: 0 0; }
+    .concept-ref dt { margin-top: 8px; }
+  }
+
+  /* ── Contact ───────────────────────────────────────────────── */
+  .contact { text-align: center; padding: clamp(80px, 12vw, 140px) 0; border-top: 1px solid var(--line); }
+  .contact h2 { margin-bottom: 32px; }
+  .contact .channels { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
+  .contact .channels a {
+    font-size: 16px; padding: 12px 24px;
+    border: 1.5px solid var(--ink); border-radius: 100px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .contact .channels a:hover { background: var(--ink); color: var(--bg); opacity: 1; }
+
+  footer { padding: 40px 0; text-align: center; font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); }
+
+  /* ── Mobile ────────────────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .case-card { grid-template-columns: 1fr; }
+    .case-card:nth-child(even) .case-img { order: 0; }
+    .about-grid, .inspiration { grid-template-columns: 1fr; }
+    .inspiration-table { font-size: 12px; }
+    .inspiration-table th, .inspiration-table td { padding: 6px 8px; }
+    nav .links { gap: 18px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!--
+  ╔════════════════════════════════════════════════════════════════════╗
+  ║  MEDIA GUIDE — for Claude, Codex, Cursor, and similar AI assistants║
+  ║                                                                    ║
+  ║  This template accepts any media type inside a .cs-figure slot —   ║
+  ║  images, video (YouTube/Vimeo/Loom/native), PDFs, slide decks.     ║
+  ║  When the student asks you to add media, find the matching         ║
+  ║  .cs-figure-placeholder div (or .case-img / .about-photo /         ║
+  ║  .insp-placeholder) and REPLACE its contents with one of the       ║
+  ║  snippets below. CSS already handles aspect ratio + borders.       ║
+  ║                                                                    ║
+  ║  RECOMMENDED FOLDER LAYOUT (next to this .html file):              ║
+  ║    /img       photos, screenshots, exports                         ║
+  ║    /video     local .mp4 / .webm                                   ║
+  ║    /pdf       case-study write-ups                                 ║
+  ║    /slides    deck exports (often paired with embed iframe URLs)   ║
+  ║                                                                    ║
+  ║  ─── SNIPPETS ──────────────────────────────────────────────────   ║
+  ║                                                                    ║
+  ║  • IMAGE                                                           ║
+  ║      <img src="img/case-01-hero.jpg" alt="One-line description">   ║
+  ║                                                                    ║
+  ║  • YOUTUBE  (replace VIDEO_ID with the 11-char video id)           ║
+  ║      <iframe src="https://www.youtube.com/embed/VIDEO_ID"          ║
+  ║              title="…" allowfullscreen></iframe>                   ║
+  ║                                                                    ║
+  ║  • VIMEO  (replace VIDEO_ID with the numeric vimeo id)             ║
+  ║      <iframe src="https://player.vimeo.com/video/VIDEO_ID"         ║
+  ║              title="…" allowfullscreen></iframe>                   ║
+  ║                                                                    ║
+  ║  • LOOM  (use the share embed url)                                 ║
+  ║      <iframe src="https://www.loom.com/embed/SHARE_ID"             ║
+  ║              title="…" allowfullscreen></iframe>                   ║
+  ║                                                                    ║
+  ║  • LOCAL VIDEO                                                     ║
+  ║      <video src="video/demo.mp4" controls                          ║
+  ║             poster="img/demo-poster.jpg"></video>                  ║
+  ║                                                                    ║
+  ║  • PDF (inline viewer, with download fallback for unsupported)     ║
+  ║      <object data="pdf/case-01-writeup.pdf"                        ║
+  ║              type="application/pdf">                               ║
+  ║        <a href="pdf/case-01-writeup.pdf">Download PDF →</a>        ║
+  ║      </object>                                                     ║
+  ║                                                                    ║
+  ║  • PDF (download link only — lightest option)                      ║
+  ║      <a href="pdf/case-01-writeup.pdf">Read the full PDF →</a>     ║
+  ║                                                                    ║
+  ║  • GOOGLE SLIDES                                                   ║
+  ║    File → Share → Publish to web → Embed. Then:                    ║
+  ║      <iframe src="https://docs.google.com/presentation/d/e/PUB_ID/embed" ║
+  ║              allowfullscreen></iframe>                             ║
+  ║                                                                    ║
+  ║  • POWERPOINT ONLINE / SPEAKERDECK / FIGMA EMBED                   ║
+  ║    Use the iframe snippet that platform gives you. Drop in same    ║
+  ║    place as a YouTube iframe.                                      ║
+  ║                                                                    ║
+  ║  ─── WHEN STUDENT SAYS "EMBED MY [X] IN CASE [Y]" ─────────────  ║
+  ║                                                                    ║
+  ║  1. Find the right figure container by case id (case-iconic,       ║
+  ║     case-world, case-thirtyyear, case-senses, case-principles,     ║
+  ║     case-final) and figure number.                                 ║
+  ║  2. Replace the inner content of <div class="cs-figure-placeholder">║
+  ║     with one of the snippets above.                                ║
+  ║  3. Update the matching <figcaption> with a one-line description.  ║
+  ║  4. Use meaningful alt / title attributes for accessibility.       ║
+  ║                                                                    ║
+  ║  Same pattern for hero/case-card images (.case-img), the           ║
+  ║  About portrait (.about-photo), and the inspiration drawing        ║
+  ║  (.insp-placeholder).                                              ║
+  ╚════════════════════════════════════════════════════════════════════╝
+-->
+
+<!-- ★ NAV — update the brand name -->
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">{{YOUR NAME}}</a>
+    <div class="links">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#inspiration">Inspiration</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!--
+  ★ HERO — your one-line hook + bio. The reader should know what you do in under 5 seconds.
+
+  GUIDANCE FOR WRITING YOUR HOOK (especially if your experience is sparse or spans different areas):
+
+  • Lead with verbs you actually enjoy doing, not job titles you don't have yet.
+    "I design, write, and overthink coffee" beats "Aspiring UX Designer & Generalist."
+
+  • If your experiences span different domains, name the COMMON THREAD instead of listing fields.
+    A common thread can be a question ("what makes something feel cared for?"),
+    a perspective ("designing for people who don't fit a standard mold"),
+    or an approach ("I start every project by listening, then sketching").
+
+  • If your experiences are in DIFFERENT categories, group them honestly.
+    Three buckets work well: "Design + Research + Writing" or "Visual + Service + Systems"
+    or "Code + Craft + Storytelling." Categories are clearer than vague generalist claims.
+
+  • If you're early-career, "designer/builder/student of X" is honest and works.
+    "Student of taste, working in product design and community organizing."
+
+  PICK THREE VERBS THAT ARE TRUE. Specific verbs always beat generic ones.
+  Strong: "I cook, design, and write." / "I draw, code, and run things."
+  Weak:   "I create, innovate, and ideate."
+-->
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1 class="hook">
+      I design <em>{{verb 1}}</em>, {{verb 2}} &amp; {{verb 3}}.
+    </h1>
+    <p class="bio">
+      {{Your one-paragraph bio. ~2-4 sentences.}}
+      <!--
+        SUGGESTED SHAPE (when experience feels sparse or scattered):
+
+        Sentence 1 — WHO YOU ARE in the most honest, specific way.
+          Role (or "student of"), location, 1 thing that orients your work.
+          Example: "I'm a student of design at Dartmouth, focused on how mundane objects shape behavior."
+
+        Sentence 2 — WHAT KINDS OF PROBLEMS pull you in.
+          Pick a slice — a population, a domain, or a quality.
+          Example: "I'm most curious about things that get used every day but rarely get redesigned."
+
+        Sentence 3 (optional) — HOW you work or who you do your best work with.
+          Example: "I do my best work alongside people who care about the small details."
+
+        Skip the buzzwords. "User-centric paradigms" reads weaker than "I talk to people first."
+
+        Gloria Lo's version for reference:
+        "Product designer based in Sydney, Australia with experience in delivering end-to-end UX/UI design."
+      -->
+    </p>
+  </div>
+</header>
+
+<!--
+  ★ WORK INDEX
+
+  Six pre-populated entries matching each design challenge from the course:
+
+    01. Iconic Beginnings        (Week 2)
+    02. Everything Is a World    (Week 3)
+    03. The 30-Year Object       (Week 4)
+    04. Invisible Senses         (Week 5)
+    05. Your 10 Principles       (Week 6)
+    06. Final Project: V1 → V2 → V3  (Weeks 7–10, building on each other)
+
+  CURATION NOTE: Fill this in completely. In your reflection, you'll be
+  asked to indicate which entries you would IMPROVE before using in your
+  public portfolio, specifically HOW and WHY.
+
+  TO ADD MORE ENTRIES: see the "DUPLICATE THIS BLOCK" markers around Case 01
+  in the detailed sections below.
+-->
+<section id="work">
+  <div class="wrap">
+    <p class="section-label">Selected Work · 2026 · Design Survivor</p>
+    <h2>Recent projects.</h2>
+
+    <div class="work-grid">
+
+      <!-- 01. Iconic Beginnings (Week 2) -->
+      <article class="case-card">
+        <a href="#case-iconic" class="case-img" aria-label="View case study">{{Project hero image — 4:3 ratio}}</a>
+        <div class="case-text">
+          <p class="case-tag">Case 01 · Week 2 · Experience Design</p>
+          <h3>Iconic Beginnings</h3>
+          <p class="case-line">{{One sentence framing your project. Example: "I redesigned the first 60 seconds of a public library visit to feel like an invitation, not a procedure."}}</p>
+          <a href="#case-iconic" class="case-link">Read the case study →</a>
+        </div>
+      </article>
+
+      <!-- 02. Everything Is a World (Week 3) -->
+      <article class="case-card">
+        <a href="#case-world" class="case-img" aria-label="View case study">{{Project hero image}}</a>
+        <div class="case-text">
+          <p class="case-tag">Case 02 · Week 3 · Research-led Design</p>
+          <h3>Everything Is a World</h3>
+          <p class="case-line">{{One sentence. The mundane world you went deep into and what you found there.}}</p>
+          <a href="#case-world" class="case-link">Read the case study →</a>
+        </div>
+      </article>
+
+      <!-- 03. The 30-Year Object (Week 4) -->
+      <article class="case-card">
+        <a href="#case-thirtyyear" class="case-img" aria-label="View case study">{{Project hero image}}</a>
+        <div class="case-text">
+          <p class="case-tag">Case 03 · Week 4 · Longevity &amp; Repair</p>
+          <h3>The 30-Year Object</h3>
+          <p class="case-line">{{One sentence. The object you designed to last 30 years and why people would keep it.}}</p>
+          <a href="#case-thirtyyear" class="case-link">Read the case study →</a>
+        </div>
+      </article>
+
+      <!-- 04. Invisible Senses (Week 5) -->
+      <article class="case-card">
+        <a href="#case-senses" class="case-img" aria-label="View case study">{{Project hero image}}</a>
+        <div class="case-text">
+          <p class="case-tag">Case 04 · Week 5 · Sensory Design</p>
+          <h3>Invisible Senses</h3>
+          <p class="case-line">{{One sentence. The place-based sensory prototype you made and the feeling it created.}}</p>
+          <a href="#case-senses" class="case-link">Read the case study →</a>
+        </div>
+      </article>
+
+      <!-- 05. Your 10 Principles (Week 6) -->
+      <article class="case-card">
+        <a href="#case-principles" class="case-img" aria-label="View case study">{{Project hero image — a portrait of your principles}}</a>
+        <div class="case-text">
+          <p class="case-tag">Case 05 · Week 6 · Articulated Taste</p>
+          <h3>Your 10 Principles</h3>
+          <p class="case-line">{{One sentence. The 10 principles you articulated and what they reveal about your design POV.}}</p>
+          <a href="#case-principles" class="case-link">Read the case study →</a>
+        </div>
+      </article>
+
+      <!-- 06. Final Project: V1 → V2 → V3 (Weeks 7–10) -->
+      <article class="case-card">
+        <a href="#case-final" class="case-img" aria-label="View case study">{{Final project hero image — V3 polished}}</a>
+        <div class="case-text">
+          <p class="case-tag">Case 06 · Weeks 7–10 · Final Project Arc</p>
+          <h3>{{Final Project Title}}</h3>
+          <p class="case-line">{{One sentence framing the problem your final project solved. Three iterations: V1 (Useful Friction), V2 (What Deserves More), V3 (Less But Better).}}</p>
+          <a href="#case-final" class="case-link">Read the case study →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!--
+  ╔════════════════════════════════════════════════════════════════════╗
+  ║  SUGGESTED 6-BLOCK CASE STUDY STRUCTURE                            ║
+  ║                                                                    ║
+  ║  Used for cases 01–05 below. The Final Project (case 06) uses a    ║
+  ║  longer V1 → V2 → V3 structure to show the iteration arc.          ║
+  ║                                                                    ║
+  ║   1. Context & Role   — what, who, when, your role                 ║
+  ║   2. Problem          — emotional, human framing of the question   ║
+  ║   3. Research         — interviews, surveys, observation, scan     ║
+  ║   4. Process          — sketches, iterations, dead ends            ║
+  ║   5. Decisions        — what you chose and why (tie back to #2)    ║
+  ║   6. Outcome          — what changed + what you learned            ║
+  ║                                                                    ║
+  ║  Each block reads in 30 seconds. Depth lives in figures + captions.║
+  ║  Bend the structure if the project calls for it — it's a starter.  ║
+  ╚════════════════════════════════════════════════════════════════════╝
+-->
+
+<!--
+  ╔════════════════════════════════════════════════════════════════════╗
+  ║  ★ TO ADD ANOTHER CASE STUDY                                       ║
+  ║                                                                    ║
+  ║  1. Copy everything between the markers below (DUPLICATE START     ║
+  ║     to DUPLICATE END).                                             ║
+  ║  2. Paste it AFTER the last case-study section (before #about).    ║
+  ║  3. Change three things in the copy:                               ║
+  ║       • the section id (e.g., id="case-new")                       ║
+  ║       • the matching href in the work grid up top (#case-new)      ║
+  ║       • the case number + title + content                          ║
+  ║                                                                    ║
+  ║  If you're using Claude or Codex, ask: "duplicate the case study   ║
+  ║  block between DUPLICATE START and DUPLICATE END and rename to     ║
+  ║  case-{new-name}."                                                 ║
+  ╚════════════════════════════════════════════════════════════════════╝
+-->
+
+<!-- ═══════════════════ DUPLICATE START ═══════════════════ -->
+<!-- ★ CASE 01 · Iconic Beginnings (Week 2) -->
+<section class="case-study" id="case-iconic">
+  <div class="wrap">
+    <p class="section-label">Case 01 · Week 2 · Iconic Beginnings</p>
+    <h2>{{Your Project Title}}</h2>
+    <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
+      {{One-sentence outcome. The challenge: design an opening — the first 30 seconds, the unboxing, the threshold — that feels iconic. Took cues from Disney, Apple, DVF.}}
+    </p>
+
+    <div class="cs-meta">
+      <div><strong>My Role</strong>{{e.g., Solo / Lead designer}}</div>
+      <div><strong>Partner / Dyad</strong>{{name if applicable}}</div>
+      <div><strong>Timeline</strong>{{Week 2, 7 days}}</div>
+      <div><strong>Tools</strong>{{e.g., paper, Figma, video, props}}</div>
+      <div><strong>Live / Demo</strong><a href="#">View →</a></div>
+    </div>
+
+    <div class="cs-block">
+      <h3>Context</h3>
+      <p>{{What is the experience you redesigned an opening for? Why did its current beginning fall flat?}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>The Problem</h3>
+      <p>{{Frame the human problem. What was missing in the first moments? What feeling did you want to create instead?}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>Research</h3>
+      <p>{{Which existing iconic beginnings did you study? What pattern did you borrow? (Disney anticipation, Apple sequence, DVF analogy)}}</p>
+      <!-- Any figure slot accepts images, video embeds (YouTube/Vimeo/Loom/native), PDFs, or slide embeds. Ask Claude/Codex/Cursor to swap it in — see MEDIA GUIDE comment at top of this file for snippets. -->
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Reference research / mood board · image · video · PDF · slides — see MEDIA GUIDE at top of file}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Process</h3>
+      <p>{{Sketches, props, storyboard, prototype. What did you try that didn't work?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Sketches / storyboard}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Key Decisions</h3>
+      <p>{{The 2–3 design moves that defined your opening. Tie back to the feeling you wanted to create.}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Final design — staged photo, video still, or render}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Tools, Workflow &amp; Takeaway</h3>
+      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
+      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
+      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+    </div>
+    <div class="cs-outcome">
+      <h4>Outcome &amp; Reflection</h4>
+      <p><strong>What changed:</strong> {{What was the felt difference? Test it on a real person if you can.}}</p>
+      <p><strong>What I learned:</strong> {{One honest sentence.}}</p>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════ DUPLICATE END ═══════════════════ -->
+
+<!-- ★ CASE 02 · Everything Is a World (Week 3) -->
+<section class="case-study" id="case-world">
+  <div class="wrap">
+    <p class="section-label">Case 02 · Week 3 · Everything Is a World</p>
+    <h2>{{Your Project Title}}</h2>
+    <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
+      {{One-sentence outcome. You picked a mundane world, went deep, and delivered a standalone design brief.}}
+    </p>
+
+    <div class="cs-meta">
+      <div><strong>My Role</strong>{{Solo / Partner}}</div>
+      <div><strong>Partner / Dyad</strong>{{name}}</div>
+      <div><strong>Timeline</strong>{{Week 3, 7 days}}</div>
+      <div><strong>Tools</strong>{{interview, observation, sketching}}</div>
+      <div><strong>Live / Demo</strong><a href="#">View →</a></div>
+    </div>
+
+    <div class="cs-block">
+      <h3>Context</h3>
+      <p>{{What mundane world did you choose? Why this one? What did most people overlook about it?}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>The Problem</h3>
+      <p>{{The invisible system you made visible. Frame it as a human problem, not a category gap.}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>Research</h3>
+      <p>{{Who did you interview? What did you observe? Which dual desires showed up? The disappearing interviewer principle — were you serving the subject?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Interview notes / observation artifacts}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Process</h3>
+      <p>{{How did you go from research to a brief? Which directions did you reject?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Synthesis artifacts}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Key Decisions</h3>
+      <p>{{The design moves in your brief. What did the world demand that you wouldn't have known without going deep?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Design brief artifact}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Tools, Workflow &amp; Takeaway</h3>
+      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
+      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
+      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+    </div>
+    <div class="cs-outcome">
+      <h4>Outcome &amp; Reflection</h4>
+      <p><strong>What changed:</strong> {{Did your brief change how someone in that world saw their own work?}}</p>
+      <p><strong>What I learned:</strong> {{One honest sentence about going deep.}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ★ CASE 03 · The 30-Year Object (Week 4) -->
+<section class="case-study" id="case-thirtyyear">
+  <div class="wrap">
+    <p class="section-label">Case 03 · Week 4 · The 30-Year Object</p>
+    <h2>{{Your Project Title}}</h2>
+    <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
+      {{One-sentence outcome. The object you designed to last 30 years — and why someone would keep it that long.}}
+    </p>
+
+    <div class="cs-meta">
+      <div><strong>My Role</strong>{{Solo / Partner}}</div>
+      <div><strong>Partner / Dyad</strong>{{name}}</div>
+      <div><strong>Timeline</strong>{{Week 4, 7 days}}</div>
+      <div><strong>Tools</strong>{{materials, sketches, model-making}}</div>
+      <div><strong>Live / Demo</strong><a href="#">View →</a></div>
+    </div>
+
+    <div class="cs-block">
+      <h3>Context</h3>
+      <p>{{What object did you pick to redesign for longevity? What's the current 3-year throwaway version?}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>The Problem</h3>
+      <p>{{Emotional durability — what makes someone love an object enough to repair it? The challenge wasn't "make it harder," it was "make it matter."}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>Research</h3>
+      <p>{{Which 30-year-old objects did you study? Repair Cafe, Patagonia, Swarovski, Flyknit, PPR HOME — which principle did you borrow?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Reference objects you studied}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Process</h3>
+      <p>{{Material choices, joinery, modularity, repairability. What did you try that wouldn't hold up?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Material studies / prototypes}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Key Decisions</h3>
+      <p>{{The 2–3 longevity moves: constraint as identity, durability as desirability, repair as understanding.}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Final object / prototype}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Tools, Workflow &amp; Takeaway</h3>
+      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
+      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
+      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+    </div>
+    <div class="cs-outcome">
+      <h4>Outcome &amp; Reflection</h4>
+      <p><strong>What changed:</strong> {{Would a real person keep this for 30 years? Why?}}</p>
+      <p><strong>What I learned:</strong> {{One honest sentence about durability.}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ★ CASE 04 · Invisible Senses (Week 5) -->
+<section class="case-study" id="case-senses">
+  <div class="wrap">
+    <p class="section-label">Case 04 · Week 5 · Invisible Senses</p>
+    <h2>{{Your Project Title}}</h2>
+    <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
+      {{One-sentence outcome. The place-based sensory prototype you designed — making the invisible perceptible.}}
+    </p>
+
+    <div class="cs-meta">
+      <div><strong>My Role</strong>{{Partner dyad}}</div>
+      <div><strong>Partner</strong>{{name}}</div>
+      <div><strong>Timeline</strong>{{Week 5–6, delivered Monday Week 6}}</div>
+      <div><strong>Tools</strong>{{scent, sound, materials, lighting, site}}</div>
+      <div><strong>Live / Demo</strong><a href="#">View →</a></div>
+    </div>
+
+    <div class="cs-block">
+      <h3>Context</h3>
+      <p>{{Which place did you design for? What was its dominant sense — what was being ignored?}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>The Problem</h3>
+      <p>{{The non-visual feeling you wanted to create or amplify. (Use Desmet &amp; Hekkert — appraisal? association? meaning?)}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>Research</h3>
+      <p>{{The 60-Second Experience exercise — what did you notice that no one talks about? Which references guided you (Jiro, Noma, Eliasson)?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{On-site sensory notes / mood board}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Process</h3>
+      <p>{{Material tests, scent experiments, sound trials. What didn't read as intended?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Prototype iterations}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Key Decisions</h3>
+      <p>{{The 2–3 sensory choices that defined the prototype. Multisensory design — but which sense led?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Final prototype in place}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>Tools, Workflow &amp; Takeaway</h3>
+      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
+      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
+      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+    </div>
+    <div class="cs-outcome">
+      <h4>Outcome &amp; Reflection</h4>
+      <p><strong>What changed:</strong> {{How did people respond when they encountered it? What did they say?}}</p>
+      <p><strong>What I learned:</strong> {{One honest sentence about designing for a sense you can't see.}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ★ CASE 05 · Your 10 Principles (Week 6) -->
+<section class="case-study" id="case-principles">
+  <div class="wrap">
+    <p class="section-label">Case 05 · Week 6 · Your 10 Principles</p>
+    <h2>My 10 Principles</h2>
+    <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
+      {{One-sentence framing. Not Dieter Rams's principles — yours. What you've come to believe about design after six weeks of making and curating.}}
+    </p>
+
+    <div class="cs-meta">
+      <div><strong>My Role</strong>Solo · Personal POV</div>
+      <div><strong>Source</strong>{{your curation journal + body of work}}</div>
+      <div><strong>Timeline</strong>Week 6</div>
+      <div><strong>Format</strong>{{poster · zine · video · essay · slides}}</div>
+      <div><strong>Live / Demo</strong><a href="#">View →</a></div>
+    </div>
+
+    <div class="cs-block">
+      <h3>Context</h3>
+      <p>{{Why these 10? What were you noticing in your curation journal that nobody had named for you? This is taste articulated.}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>The 10 Principles</h3>
+      <ol style="font-size:17px; line-height:1.7; padding-left:24px; margin:16px 0;">
+        <li>{{Principle 1 — short title + one-sentence explanation.}}</li>
+        <li>{{Principle 2}}</li>
+        <li>{{Principle 3}}</li>
+        <li>{{Principle 4}}</li>
+        <li>{{Principle 5}}</li>
+        <li>{{Principle 6}}</li>
+        <li>{{Principle 7}}</li>
+        <li>{{Principle 8}}</li>
+        <li>{{Principle 9}}</li>
+        <li>{{Principle 10}}</li>
+      </ol>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Your principles as a designed artifact — poster, zine cover, video still}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+    </div>
+    <div class="cs-block">
+      <h3>How I Arrived Here</h3>
+      <p>{{Which projects, readings, or moments shaped each principle? Connect 2–3 of the principles back to specific work.}}</p>
+    </div>
+    <div class="cs-block">
+      <h3>Tools, Workflow &amp; Takeaway</h3>
+      <p><strong>Tools:</strong> {{1–2 lines. How you produced the artifact (poster · zine · video · essay · slides) — which tools you used, evaluated, or skipped.}}</p>
+      <p><strong>Workflow:</strong> {{1–2 lines. How you moved from journal entries → drafted principles → designed artifact. For AI-assisted work, name the back-and-forth.}}</p>
+      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+    </div>
+    <div class="cs-outcome">
+      <h4>Reflection</h4>
+      <p><strong>What I see in my own taste:</strong> {{What pattern does the list reveal that you hadn't named before?}}</p>
+      <p><strong>What's still uncertain:</strong> {{Which principle do you hold most loosely? Why?}}</p>
+    </div>
+  </div>
+</section>
+
+<!--
+  ╔════════════════════════════════════════════════════════════════════╗
+  ║  ★ CASE 06 · FINAL PROJECT · V1 → V2 → V3                          ║
+  ║                                                                    ║
+  ║  This entry intentionally has a LONGER structure because three     ║
+  ║  weeks of iteration is the point. Treat each V as a sub-case that  ║
+  ║  builds on the last:                                               ║
+  ║                                                                    ║
+  ║    V1 (Week 7 · Designing Useful Friction)                         ║
+  ║    V2 (Week 8 · What Deserves More?)                               ║
+  ║    V3 (Week 9–10 · Less But Better)                                ║
+  ║                                                                    ║
+  ║  Show what changed between versions, what survived, and the final  ║
+  ║  V3 with full 6-block treatment. Iteration IS a portfolio asset.   ║
+  ╚════════════════════════════════════════════════════════════════════╝
+-->
+<section class="case-study" id="case-final">
+  <div class="wrap">
+    <p class="section-label">Case 06 · Weeks 7–10 · Final Project (V1 → V2 → V3)</p>
+    <h2>{{Final Project Title}}</h2>
+    <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
+      {{One-sentence outcome. The problem your final project solved, and what the three-version arc taught you.}}
+    </p>
+
+    <div class="cs-meta">
+      <div><strong>My Role</strong>{{Solo / Partner dyad}}</div>
+      <div><strong>Partner</strong>{{name}}</div>
+      <div><strong>Timeline</strong>Weeks 7–10 · 4 weeks · 3 versions</div>
+      <div><strong>Tools</strong>{{tools across all versions}}</div>
+      <div><strong>Live / Demo</strong><a href="#">View V3 →</a></div>
+    </div>
+
+    <div class="cs-block">
+      <h3>Context &amp; Problem</h3>
+      <p>{{The framing that held across all three versions. What problem were you returning to each week?}}</p>
+    </div>
+
+    <div class="cs-block">
+      <h3>Research</h3>
+      <p>{{Research that informed V1, plus what you continued to learn during V2 and V3.}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Research artifacts spanning the arc}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+    </div>
+
+    <!-- V1 sub-section -->
+    <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px; margin-top:32px;">
+      <p class="section-label" style="margin-bottom:8px;">V1 · Week 7 · Designing Useful Friction</p>
+      <h3>The First Attempt</h3>
+      <p>{{What did V1 look like? Where did you put useful friction? Which Pixar Braintrust / Sutton &amp; Rao concepts shaped it? What didn't land?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{V1 artifact}}</div><figcaption>{{Figure 2. V1 — what it was.}}</figcaption></figure>
+    </div>
+
+    <!-- V2 sub-section -->
+    <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px; margin-top:32px;">
+      <p class="section-label" style="margin-bottom:8px;">V2 · Week 8 · What Deserves More?</p>
+      <h3>The Ugly Darling</h3>
+      <p>{{What did V2 add that V1 couldn't have — a new SEMINAL system, audience, scale, or material? Which ugly darling did you give more room? What did you let go of from V1?}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{V2 artifact}}</div><figcaption>{{Figure 3. V2 — what changed.}}</figcaption></figure>
+    </div>
+
+    <!-- V3 sub-section -->
+    <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px; margin-top:32px;">
+      <p class="section-label" style="margin-bottom:8px;">V3 · Weeks 9–10 · Less But Better</p>
+      <h3>The Final Edit</h3>
+      <p>{{What did V3 cut from V2? Obsessive reduction — the edit as design. What survived three rounds because it was load-bearing? Apply Schön (reflection-in-action) and Duarte (audience as hero).}}</p>
+      <figure class="cs-figure"><div class="cs-figure-placeholder">{{V3 final artifact — the version that can stand on its own}}</div><figcaption>{{Figure 4. V3 — what stayed.}}</figcaption></figure>
+    </div>
+
+    <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px;">
+      <h3>Tools, Workflow &amp; Takeaway across V1 → V2 → V3</h3>
+      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use across the three versions. Note any tool swaps between versions.}}</p>
+      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.) — and how that workflow itself evolved V1 → V2 → V3. For AI-assisted work, name the back-and-forth.}}</p>
+      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+    </div>
+
+    <div class="cs-outcome">
+      <h4>Outcome &amp; Reflection on the Arc</h4>
+      <p><strong>What changed across V1 → V2 → V3:</strong> {{Name the through-line and the cuts.}}</p>
+      <p><strong>What I learned about iteration:</strong> {{One honest sentence on what V3 made possible that V1 couldn't see.}}</p>
+      <p><strong>What V3 stands on its own as:</strong> {{Frame V3 for someone who never saw V1 or V2.}}</p>
+    </div>
+  </div>
+</section>
+
+<!-- ★ ABOUT — short, human, specific. NOT a résumé. -->
+<section id="about">
+  <div class="wrap">
+    <p class="section-label">About</p>
+    <h2>Who I am.</h2>
+    <div class="about-grid">
+      <div class="about-photo">{{Portrait photo, 4:5}}</div>
+      <div class="about-text">
+        <p>{{Paragraph 1: who you are, what kinds of problems pull you in. Be specific — "designing for people who cook on a budget" lands better than "user-centered design."}}</p>
+        <p>{{Paragraph 2: how you work — methods, collaborators, the kind of team you do your best work with.}}</p>
+        <p>{{Paragraph 3: who you are when you're not designing — one or two real things. This is where personality belongs.}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ★ INSPIRATION COLLECTION — your hand-drawn 8×10 in the Dear Data form,
+  PLUS the table of 20 designs that inspire you, tagged by SEMINAL system.
+
+  Side A: what you drew Week 1 (your first SEMINAL-tagged collection).
+  Side B: updated with 20 new designs that inspire you, tagged with the
+  same SEMINAL process + any concept tags from Weeks 2–9 that speak to you.
+-->
+<section id="inspiration">
+  <div class="wrap">
+    <p class="section-label">Inspiration Collection · Dear Data form · 10 weeks of looking</p>
+    <h2>20 designs that inspire me before and after this course.</h2>
+
+    <!-- The drawing itself, side by side with its legend -->
+    <div class="inspiration">
+      <div class="insp-placeholder">{{Photographed hand-drawn 8×10, textured paper. Show both sides — Side A (Week 1, before) and Side B (Week 10, after).}}</div>
+      <div class="insp-text">
+        <p>{{A hand-drawn 8×10 data visualization of my inspiration collection. Side A is what you started the course. Side B is what's been added by the end. 20 designs that inspire you before and after, tagged by class concepts and SEMINAL systems. The drawing is the felt version; the table below is the legible version.}}</p>
+        <div class="insp-legend">
+          <strong>Legend</strong><br>
+          {{How to read the drawing: shape = …, color = …, line weight = …, position = …}}
+        </div>
+      </div>
+    </div>
+
+    <!-- The 40-design table — two sides, 20 each -->
+    <h3 style="margin-top:64px;">The Collection — 40 Designs</h3>
+    <p style="font-size:14px; color:var(--muted); margin-bottom:8px; max-width:720px;">
+      40 rows total: 20 that inspired you at the <strong>start of the course</strong> (Side A · Week 1) and 20 added by the <strong>end</strong> (Side B · Week 10). <strong>SEMINAL</strong> = which system letter(s) the design embodies (S · E · M · I · N · A · L · can be more than one). <strong>Concept tags</strong> are optional — pull from the reference below if a concept jumped out.
+    </p>
+
+    <details class="concept-ref">
+      <summary>Concept tags reference — SEMINAL systems + Week 2–9 concepts (click to expand)</summary>
+
+      <h4>SEMINAL Systems (Week 1)</h4>
+      <dl>
+        <dt>S — Service</dt><dd>experience journeys, touchpoints, delivery</dd>
+        <dt>E — Energy</dt><dd>environmental flows, carbon, power</dd>
+        <dt>M — Material</dt><dd>physical matter, form, manufacturing</dd>
+        <dt>I — Interaction / Sensory</dt><dd>how designs are experienced, perceived, used</dd>
+        <dt>N — Natural</dt><dd>ecology, organisms, food systems</dd>
+        <dt>A — Artificial</dt><dd>computation, AI, machine intelligence</dd>
+        <dt>L — Longevity</dt><dd>durability, repair, aging, aesthetics</dd>
+      </dl>
+
+      <h4>Week 2 — Iconic Beginnings</h4>
+      <dl>
+        <dt>Structure Mapping</dt><dd>borrowing the deep structure of one thing for another</dd>
+        <dt>Far-Field Analogies</dt><dd>pulling design moves from distant domains</dd>
+        <dt>Technology Brokering</dt><dd>combining existing tech in new ways</dd>
+        <dt>Experience Economy</dt><dd>designing for the felt event, not just the product</dd>
+        <dt>Affordances</dt><dd>what an object invites you to do with it</dd>
+        <dt>Anticipation as Design</dt><dd>designing the moments before the experience</dd>
+        <dt>Controlled Reveal</dt><dd>pacing what gets shown, when</dd>
+        <dt>Sensory Arc</dt><dd>the curve of sensory intensity across an experience</dd>
+        <dt>One Resonant Idea</dt><dd>the single thing the design is about</dd>
+      </dl>
+
+      <h4>Week 3 — Everything Is a World</h4>
+      <dl>
+        <dt>Disappearing Interviewer</dt><dd>getting out of the subject's way</dd>
+        <dt>Curiosity as Structure</dt><dd>the interviewer's curiosity IS the show</dd>
+        <dt>Interviewing Users</dt><dd>direct, generative conversation as research</dd>
+        <dt>Invisible Systems Made Visible</dt><dd>designing for what's overlooked</dd>
+        <dt>Dual Desires</dt><dd>catering to contradictory wants in the same person</dd>
+        <dt>Going Deep</dt><dd>rabbit-holing into a mundane domain</dd>
+      </dl>
+
+      <h4>Week 4 — The 30-Year Object</h4>
+      <dl>
+        <dt>Constraints Increase Variability</dt><dd>fewer materials, more interesting outputs</dd>
+        <dt>Emotionally Durable Design</dt><dd>designed to be loved long enough to repair</dd>
+        <dt>Craftsmanship</dt><dd>visible care in execution</dd>
+        <dt>Constraint as Identity</dt><dd>the limitation becomes the brand</dd>
+        <dt>Durability as Desirability</dt><dd>long-life as a selling point</dd>
+        <dt>Repair as Understanding</dt><dd>repairing it teaches you about it</dd>
+      </dl>
+
+      <h4>Week 5 — Invisible Senses</h4>
+      <dl>
+        <dt>Multisensory Design</dt><dd>engaging more than vision</dd>
+        <dt>Frame Innovation</dt><dd>changing the frame is the design move</dd>
+        <dt>Emotional Design</dt><dd>designing for feeling first</dd>
+        <dt>Obsessive Sensory Attention</dt><dd>noticing what others skip</dd>
+        <dt>Place as Story</dt><dd>the site is the narrative</dd>
+        <dt>Making Invisible Perceptible</dt><dd>surfacing what can't normally be seen</dd>
+      </dl>
+
+      <h4>Week 6 — Curating &amp; Taste</h4>
+      <dl>
+        <dt>Curation as Self-Knowledge</dt><dd>what you collect reveals you</dd>
+        <dt>System Clustering</dt><dd>patterns inside your collection</dd>
+        <dt>Body of Work</dt><dd>the curated whole as the argument</dd>
+      </dl>
+
+      <h4>Week 7 — Get Out of Your Head</h4>
+      <dl>
+        <dt>Collective Intelligence</dt><dd>the group sees what the individual misses</dd>
+        <dt>Technology as Teammate</dt><dd>tools that share the work</dd>
+        <dt>Braintrust</dt><dd>Pixar-style structured candor</dd>
+        <dt>Useful Friction</dt><dd>slowing things down deliberately</dd>
+        <dt>Candor Without Authority</dt><dd>feedback without rank</dd>
+        <dt>Service Design Under Pressure</dt><dd>designing for crisis moments</dd>
+      </dl>
+
+      <h4>Week 8 — Ugly Darlings</h4>
+      <dl>
+        <dt>Ugly Darlings</dt><dd>the unfinished idea worth more time</dd>
+        <dt>Artful Making</dt><dd>execution as expression</dd>
+        <dt>Design with Intent</dt><dd>every move on purpose</dd>
+        <dt>Iteration at Scale</dt><dd>Dyson's 5,127 prototypes</dd>
+      </dl>
+
+      <h4>Week 9 — Less But Better</h4>
+      <dl>
+        <dt>Reflection-in-Action</dt><dd>Schön: thinking while doing</dd>
+        <dt>Audience as Hero</dt><dd>Duarte: the audience drives the story</dd>
+        <dt>Obsessive Reduction</dt><dd>cutting until only the load-bearing remains</dd>
+        <dt>The Edit as Design</dt><dd>what you remove IS the design</dd>
+      </dl>
+    </details>
+
+    <p class="inspiration-side-label">Side A <small>Week 1 · Before</small></p>
+    <table class="inspiration-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Design / Inspiration</th>
+          <th>What inspires me about it</th>
+          <th>SEMINAL</th>
+          <th>Concept tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">01</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{e.g., M · I}}</td><td>{{}}</td></tr>
+        <tr><td class="num">02</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">03</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">04</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">05</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">06</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">07</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">08</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">09</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">10</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">11</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">12</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">13</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">14</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">15</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">16</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">17</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">18</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">19</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">20</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+      </tbody>
+    </table>
+
+    <p class="inspiration-side-label">Side B <small>Week 10 · After</small></p>
+    <table class="inspiration-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Design / Inspiration</th>
+          <th>What inspires me about it</th>
+          <th>SEMINAL</th>
+          <th>Concept tags</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">21</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{e.g., Going Deep}}</td></tr>
+        <tr><td class="num">22</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">23</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">24</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">25</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">26</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">27</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">28</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">29</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">30</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">31</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">32</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">33</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">34</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">35</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">36</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">37</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">38</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">39</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">40</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:14px; color:var(--muted); margin-top:24px;">
+      <strong>What the pattern reveals:</strong> {{1–3 sentences. How did your collection shift from Side A to Side B? Which SEMINAL systems cluster on each side? Which letters never show up? What does the difference say about how your eye changed?}}
+    </p>
+  </div>
+</section>
+
+<!-- ★ CONTACT — make it easy to reach you -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's connect.</h2>
+    <div class="channels">
+      <a href="mailto:{{you@email.com}}">Email</a>
+      <a href="https://linkedin.com/in/{{handle}}" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/{{handle}}" target="_blank" rel="noopener">GitHub</a>
+      <a href="/resume.pdf">Résumé (PDF)</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© {{Year}} {{Your Name}}. Built with the Design Survivor portfolio template.</div>
+</footer>
+
+</body>
+</html>
