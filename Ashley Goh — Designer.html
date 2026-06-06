@@ -20,8 +20,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{YOUR NAME}} — Designer</title>
-<meta name="description" content="{{One sentence — what you do, in plain language}}">
+<title>Ashley Goh — Designer</title>
+<meta name="description" content="I design to make people's lives easier and more playful.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
     --ink: #1A1A1A;
     --muted: #6B6B6B;
     --line: rgba(0,0,0,0.1);
-    --accent: #2A3557;       /* Change to make it yours. Suggested: a single brand color. */
+    --accent: #ffca9e;       /* Change to make it yours. Suggested: a single brand color. */
     --max-w: 1080px;
     --gap: clamp(24px, 5vw, 64px);
   }
@@ -94,7 +94,7 @@
   }
   .case-card:nth-child(even) .case-img { order: 2; }
   .case-img {
-    aspect-ratio: 4 / 3; background: #EAEAE3 center/cover no-repeat; border-radius: 8px;
+    aspect-ratio: 4 / 3; background: #EAEAE3 center/contain no-repeat; border-radius: 8px;
     display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
   }
   .case-text .case-tag { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
@@ -116,7 +116,10 @@
   .case-study .cs-block { margin-bottom: 48px; max-width: 720px; }
   .case-study .cs-block h3 { margin-bottom: 16px; }
   .case-study .cs-figure { margin: 32px 0; }
-  .case-study .cs-figure img, .case-study .cs-figure .cs-figure-placeholder {
+  .case-study .cs-figure img {
+    width: 100%; height: auto; display: block; border-radius: 6px;
+  }
+  .case-study .cs-figure .cs-figure-placeholder {
     width: 100%; aspect-ratio: 16 / 9; background: #EAEAE3; border-radius: 6px;
     display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
   }
@@ -126,6 +129,11 @@
   .case-study .cs-figure embed,
   .case-study .cs-figure object {
     width: 100%; aspect-ratio: 16 / 9; border-radius: 6px; border: 0; display: block; background: #1A1A1A;
+  }
+  .case-study .cs-figure iframe.cs-figure-site {
+    aspect-ratio: auto;
+    height: clamp(520px, 72vh, 800px);
+    background: #EAEAE3;
   }
   .case-study .cs-figure object[type="application/pdf"],
   .case-study .cs-figure embed[type="application/pdf"] {
@@ -143,7 +151,9 @@
   .about-photo {
     aspect-ratio: 4 / 5; background: #EAEAE3; border-radius: 8px;
     display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
+    overflow: hidden;
   }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .about-text p { font-size: 17px; line-height: 1.65; margin-bottom: 16px; }
 
   /* ── Inspiration Collection (Dear Data form) ───────────────── */
@@ -151,7 +161,12 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap); align-items: center;
   }
   .inspiration img, .inspiration .insp-placeholder {
-    width: 100%; aspect-ratio: 4 / 5; background: #EAEAE3 center/cover no-repeat; border-radius: 8px;
+    width: 100%; background: #EAEAE3; border-radius: 8px;
+    display: block;
+  }
+  .inspiration img { height: auto; }
+  .inspiration .insp-placeholder {
+    aspect-ratio: 4 / 5;
     display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 13px;
   }
   .inspiration .insp-text p { color: var(--muted); }
@@ -295,7 +310,7 @@
 <!-- ★ NAV — update the brand name -->
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">{{YOUR NAME}}</a>
+    <a class="brand" href="#top">Ashley Goh</a>
     <div class="links">
       <a href="#work">Work</a>
       <a href="#about">About</a>
@@ -332,10 +347,10 @@
 <header class="hero" id="top">
   <div class="wrap">
     <h1 class="hook">
-      I design <em>{{verb 1}}</em>, {{verb 2}} &amp; {{verb 3}}.
+      I research, <em>design</em>, &amp; build.
     </h1>
     <p class="bio">
-      {{Your one-paragraph bio. ~2-4 sentences.}}
+      I'm a student of computer science and design at Dartmouth, focused on breaking down problems to find opportunities to make people's lives easier and more playful.
       <!--
         SUGGESTED SHAPE (when experience feels sparse or scattered):
 
@@ -387,44 +402,44 @@
 
       <!-- 01. Iconic Beginnings (Week 2) -->
       <article class="case-card">
-        <a href="#case-iconic" class="case-img" aria-label="View case study">{{Project hero image — 4:3 ratio}}</a>
+        <a href="#case-iconic" class="case-img" aria-label="View case study" style="background-image: url('img/case-01-iconic-beginnings.png');"></a>
         <div class="case-text">
           <p class="case-tag">Case 01 · Week 2 · Experience Design</p>
-          <h3>Iconic Beginnings</h3>
-          <p class="case-line">{{One sentence framing your project. Example: "I redesigned the first 60 seconds of a public library visit to feel like an invitation, not a procedure."}}</p>
+          <h3>The Tabasco Club</h3>
+          <p class="case-line">I turned an everyday hot sauce into an invitation-only membership by redesigning the packaging and ritual so that a grocery-shelf condiment feels iconic to those who go through a bottle a week.</p>
           <a href="#case-iconic" class="case-link">Read the case study →</a>
         </div>
       </article>
 
       <!-- 02. Everything Is a World (Week 3) -->
       <article class="case-card">
-        <a href="#case-world" class="case-img" aria-label="View case study">{{Project hero image}}</a>
+        <a href="#case-world" class="case-img" aria-label="View case study" style="background-image: url('img/case-02-research-led-design.png');"></a>
         <div class="case-text">
           <p class="case-tag">Case 02 · Week 3 · Research-led Design</p>
-          <h3>Everything Is a World</h3>
-          <p class="case-line">{{One sentence. The mundane world you went deep into and what you found there.}}</p>
+          <h3>Tab Hoarders</h3>
+          <p class="case-line">I went deep into the mundane world of people who keep hundreds of browser tabs open, and found it's an emotional memory system, not a clutter problem.</p>
           <a href="#case-world" class="case-link">Read the case study →</a>
         </div>
       </article>
 
       <!-- 03. The 30-Year Object (Week 4) -->
       <article class="case-card">
-        <a href="#case-thirtyyear" class="case-img" aria-label="View case study">{{Project hero image}}</a>
+        <a href="#case-thirtyyear" class="case-img" aria-label="View case study" style="background-image: url('img/case-03-longevity-repair.png');"></a>
         <div class="case-text">
           <p class="case-tag">Case 03 · Week 4 · Longevity &amp; Repair</p>
-          <h3>The 30-Year Object</h3>
-          <p class="case-line">{{One sentence. The object you designed to last 30 years and why people would keep it.}}</p>
+          <h3>The Box That Grows With You</h3>
+          <p class="case-line">A modular, reusable carrying system built to survive through every move: from a college dorm, to a first apartment, to a first house.</p>
           <a href="#case-thirtyyear" class="case-link">Read the case study →</a>
         </div>
       </article>
 
       <!-- 04. Invisible Senses (Week 5) -->
       <article class="case-card">
-        <a href="#case-senses" class="case-img" aria-label="View case study">{{Project hero image}}</a>
+        <a href="#case-senses" class="case-img" aria-label="View case study" style="background-image: url('img/case-04-sensory-design.png');"></a>
         <div class="case-text">
           <p class="case-tag">Case 04 · Week 5 · Sensory Design</p>
-          <h3>Invisible Senses</h3>
-          <p class="case-line">{{One sentence. The place-based sensory prototype you made and the feeling it created.}}</p>
+          <h3>Bottling Lull Farm</h3>
+          <p class="case-line">I recreated the smell of a New Hampshire farmers market five minutes from my house — wood, fresh bread, and an apple orchard — into a single blend.</p>
           <a href="#case-senses" class="case-link">Read the case study →</a>
         </div>
       </article>
@@ -442,11 +457,11 @@
 
       <!-- 06. Final Project: V1 → V2 → V3 (Weeks 7–10) -->
       <article class="case-card">
-        <a href="#case-final" class="case-img" aria-label="View case study">{{Final project hero image — V3 polished}}</a>
+        <a href="#case-final" class="case-img" aria-label="View case study" style="background-image: url('img/case-06-build-a-box.png');"></a>
         <div class="case-text">
           <p class="case-tag">Case 06 · Weeks 7–10 · Final Project Arc</p>
-          <h3>{{Final Project Title}}</h3>
-          <p class="case-line">{{One sentence framing the problem your final project solved. Three iterations: V1 (Useful Friction), V2 (What Deserves More), V3 (Less But Better).}}</p>
+          <h3>Build-A-Box</h3>
+          <p class="case-line">Moving boxes designed to be turned into furniture or decor after use. Cardboard gets a second life as a chair, shelf, or chandelier instead of going into the recycling bin. Three iterations: V1 (modular panels), V2 (the pivot), V3 (Build-A-Box).</p>
           <a href="#case-final" class="case-link">Read the case study →</a>
         </div>
       </article>
@@ -497,53 +512,53 @@
 <section class="case-study" id="case-iconic">
   <div class="wrap">
     <p class="section-label">Case 01 · Week 2 · Iconic Beginnings</p>
-    <h2>{{Your Project Title}}</h2>
+    <h2>The Tabasco Club</h2>
     <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
-      {{One-sentence outcome. The challenge: design an opening — the first 30 seconds, the unboxing, the threshold — that feels iconic. Took cues from Disney, Apple, DVF.}}
+      I redesigned Tabasco for its super-users — people who bring it everywhere and finish a bottle a week — turning a grocery-shelf condiment into an invitation-only membership with a premium, refillable ritual.
     </p>
 
     <div class="cs-meta">
-      <div><strong>My Role</strong>{{e.g., Solo / Lead designer}}</div>
-      <div><strong>Partner / Dyad</strong>{{name if applicable}}</div>
-      <div><strong>Timeline</strong>{{Week 2, 7 days}}</div>
-      <div><strong>Tools</strong>{{e.g., paper, Figma, video, props}}</div>
+      <div><strong>My Role</strong>Solo designer</div>
+      <div><strong>Research</strong>1:1 interview with a self-described super-user</div>
+      <div><strong>Timeline</strong>Week 2, 7 days</div>
+      <div><strong>Tools</strong>Interview, journey mapping, Nano Banana (AI image generation)</div>
       <div><strong>Live / Demo</strong><a href="#">View →</a></div>
     </div>
 
     <div class="cs-block">
       <h3>Context</h3>
-      <p>{{What is the experience you redesigned an opening for? Why did its current beginning fall flat?}}</p>
+      <p>For a super-user, the Tabasco product itself is already perfect — so the thing worth redesigning was the experience around it. The everyday version has no ritual: the twist-top crusts over, the cap leaks into your bag, and a bottle that someone treats like part of their identity still feels like a $4 grocery item.</p>
     </div>
     <div class="cs-block">
       <h3>The Problem</h3>
-      <p>{{Frame the human problem. What was missing in the first moments? What feeling did you want to create instead?}}</p>
+      <p>How do you make using a condiment feel iconic for someone who already loves it this much? My interviewee called her bottle "like my baby," used she/her pronouns for it, and walks through the rain rather than eat a meal without it. The peak of her experience was anticipation — the joy of cracking open a fresh bottle — and the low point was the mess. I wanted to design for that anticipation and engineer out the mess.</p>
     </div>
     <div class="cs-block">
       <h3>Research</h3>
-      <p>{{Which existing iconic beginnings did you study? What pattern did you borrow? (Disney anticipation, Apple sequence, DVF analogy)}}</p>
+      <p>I interviewed a super-user in depth — someone who buys in bulk, keeps a bottle in her dorm, her bag, and the dining hall, and wraps it in a towel so it won't spill. The pattern was clear: she loves the glass (it feels sturdy and lets her see how much is left), hates the cap, and finds the whole thing a part of who she is. I paired this with Pine &amp; Gilmore's Experience Economy and Disney's "the experience starts before you arrive."</p>
       <!-- Any figure slot accepts images, video embeds (YouTube/Vimeo/Loom/native), PDFs, or slide embeds. Ask Claude/Codex/Cursor to swap it in — see MEDIA GUIDE comment at top of this file for snippets. -->
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Reference research / mood board · image · video · PDF · slides — see MEDIA GUIDE at top of file}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+      <figure class="cs-figure"><img src="img/case-01-journey-map-before.png" alt="Journey map of a Tabasco super-user's current experience — satisfaction peaks at pouring, frustration at packing and replacing the bottle."><figcaption>Figure 1. Current-experience journey map — anticipation peaks, mess drags it down.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Process</h3>
-      <p>{{Sketches, props, storyboard, prototype. What did you try that didn't work?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Sketches / storyboard}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+      <p>I mapped the current experience, then drew a redesigned journey map that front-loaded anticipation and removed the mess. I generated and iterated the product visuals in Nano Banana — it took a lot of back-and-forth to get the bottle, lid, and packaging reading as premium rather than novelty.</p>
+      <figure class="cs-figure"><img src="img/case-01-journey-map-after.png" alt="Redesigned journey map for The Tabasco Club — membership application, premium unboxing, and a spill-proof pour ritual."><figcaption>Figure 2. Redesigned journey map — anticipation front-loaded, mess removed.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Key Decisions</h3>
-      <p>{{The 2–3 design moves that defined your opening. Tie back to the feeling you wanted to create.}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Final design — staged photo, video still, or render}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+      <p>Three moves defined the redesign. <strong>Membership by proof:</strong> to join The Tabasco Club you submit three months of purchase receipts — the application itself builds anticipation and turns heavy use into status. <strong>A reusable click-flip metal lid:</strong> it clicks shut so travelers know it won't spill and flips open so the sauce never crusts like a twist-top. <strong>A refillable etched-glass body:</strong> keeping the glass (and the iconic diamond logo etched in) preserves the premium feel, while screw-in refill jars give it longevity. I borrowed the replaceable-head logic of an electric toothbrush, the loyalty logic of frequent-flyer programs, and far-field analogy to push toward <em>more</em> premium rather than cheaper.</p>
+      <figure class="cs-figure"><img src="img/case-01-iconic-beginnings.png" alt="The Tabasco Club welcome kit open on a bar counter, featuring the Distributeur mechanism and refill bottles."><figcaption>Figure 3. The Tabasco Club founder kit — the unboxing moment.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Tools, Workflow &amp; Takeaway</h3>
-      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
-      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
-      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+      <p><strong>Tools:</strong> A 1:1 interview to ground the design in a real super-user, journey mapping to find the emotional peaks and lows, and Nano Banana for product visualization.</p>
+      <p><strong>Workflow:</strong> Interview → current-state journey map → redesigned journey map → iterative AI renders. With Nano Banana I had to keep refining prompts and selecting from variations to land a result that read premium instead of gimmicky.</p>
+      <p><strong>Takeaway:</strong> Designing from one person's real ritual beats designing for an "average" user. I'd reuse the journey-map-then-render loop; next time I'd lock the visual direction earlier to cut down on AI iteration.</p>
     </div>
     <div class="cs-outcome">
       <h4>Outcome &amp; Reflection</h4>
-      <p><strong>What changed:</strong> {{What was the felt difference? Test it on a real person if you can.}}</p>
-      <p><strong>What I learned:</strong> {{One honest sentence.}}</p>
+      <p><strong>What changed:</strong> A condiment people grab without thinking became a membership worth applying for — every refill brings back the anticipation of opening the first package, instead of ending at the checkout.</p>
+      <p><strong>What I learned:</strong> Creativity felt less like a sudden "aha" and more like structure-mapping — borrowing the deeper logic of toothbrushes and loyalty programs, not their surface, is what made the redesign feel new.</p>
     </div>
   </div>
 </section>
@@ -553,52 +568,50 @@
 <section class="case-study" id="case-world">
   <div class="wrap">
     <p class="section-label">Case 02 · Week 3 · Everything Is a World</p>
-    <h2>{{Your Project Title}}</h2>
+    <h2>Tab Hoarders</h2>
     <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
-      {{One-sentence outcome. You picked a mundane world, went deep, and delivered a standalone design brief.}}
+      I went deep into the world of people who keep hundreds of browser tabs open and discovered the behavior isn't disorganization — it's an emotional memory system, where every tab is a deferred decision someone is afraid to lose.
     </p>
 
     <div class="cs-meta">
-      <div><strong>My Role</strong>{{Solo / Partner}}</div>
-      <div><strong>Partner / Dyad</strong>{{name}}</div>
-      <div><strong>Timeline</strong>{{Week 3, 7 days}}</div>
-      <div><strong>Tools</strong>{{interview, observation, sketching}}</div>
+      <div><strong>My Role</strong>Solo</div>
+      <div><strong>Method</strong>Online ethnography + interview-craft study</div>
+      <div><strong>Timeline</strong>Week 3, 7 days</div>
+      <div><strong>Tools</strong>Reddit &amp; YouTube research, qualitative synthesis</div>
       <div><strong>Live / Demo</strong><a href="#">View →</a></div>
     </div>
 
     <div class="cs-block">
       <h3>Context</h3>
-      <p>{{What mundane world did you choose? Why this one? What did most people overlook about it?}}</p>
+      <p>I chose tab hoarding because it's a mundane digital habit my friends and I all share — I still have tabs open on my phone from COVID. Most people read it as clutter to clean up. I wanted to treat it as a world with its own logic and go deep enough to find what that logic actually is.</p>
     </div>
     <div class="cs-block">
       <h3>The Problem</h3>
-      <p>{{The invisible system you made visible. Frame it as a human problem, not a category gap.}}</p>
+      <p>The invisible system here is emotional, not technical. People keep tabs open out of loss aversion — the "fear of the black hole" that closing a tab means the information vanishes — and the Zeigarnik effect, where unfinished tasks keep occupying working memory. The real problem isn't the tabs; it's not having a clear system for what to work on <em>now</em>.</p>
     </div>
     <div class="cs-block">
       <h3>Research</h3>
-      <p>{{Who did you interview? What did you observe? Which dual desires showed up? The disappearing interviewer principle — were you serving the subject?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Interview notes / observation artifacts}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+      <p>I scanned dozens of first-person accounts across r/ADHD, r/productivity, r/autism, r/DataHoarder, and r/adhdwomen, plus explainer videos and UX writing. To sharpen how I listened, I studied interview craft from Song Exploder, Portigal, and Ira Glass — open-ended questions, deliberate silence, and following what the subject actually says.</p>
+      <figure class="cs-figure"><img src="img/case-02-research-led-design.png" alt="Collage of hundreds of overlapping browser tab cards from research across Reddit, YouTube, and community forums."><figcaption>Figure 1. Documented "rabbit hole" — quotes and counts pulled from across communities.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Process</h3>
-      <p>{{How did you go from research to a brief? Which directions did you reject?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Synthesis artifacts}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+      <p>I synthesized the accounts into five archetypes of tab hoarder — the To-Do List maker, the Bookmarker, the Binge-and-Purger, the Tab Tsundoku enthusiast, and the Jedi master with a structured dual-window system. Clustering people this way surfaced the shared emotional driver underneath very different behaviors.</p>
     </div>
     <div class="cs-block">
       <h3>Key Decisions</h3>
-      <p>{{The design moves in your brief. What did the world demand that you wouldn't have known without going deep?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Design brief artifact}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+      <p>Going deep revealed something I wouldn't have assumed: tabs and bookmarks serve genuinely different psychological functions. One person described tabs as "L1 cache" — fast-access working memory, not storage — which is exactly why bookmark managers keep failing. They demand an upfront decision that's too high-friction, and they become their own black holes. Any real intervention has to respect that tabs are alive and bookmarks feel dead.</p>
     </div>
     <div class="cs-block">
       <h3>Tools, Workflow &amp; Takeaway</h3>
-      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
-      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
-      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+      <p><strong>Tools:</strong> Community ethnography across Reddit and YouTube, plus close study of three interviewers as models for how to draw out honest detail.</p>
+      <p><strong>Workflow:</strong> Broad rabbit-hole collection → documented quotes and counts → clustered into archetypes → distilled the shared emotional logic into a brief.</p>
+      <p><strong>Takeaway:</strong> Reading a behavior as a system instead of a flaw changes what you design. I'd reuse the archetype-clustering step; next time I'd add a first-person interview to test the patterns against a real conversation.</p>
     </div>
     <div class="cs-outcome">
       <h4>Outcome &amp; Reflection</h4>
-      <p><strong>What changed:</strong> {{Did your brief change how someone in that world saw their own work?}}</p>
-      <p><strong>What I learned:</strong> {{One honest sentence about going deep.}}</p>
+      <p><strong>What changed:</strong> I stopped seeing tab hoarding as a tidiness problem and started seeing it as deferred decisions and a fear of forgetting — which reframes the design goal from "close the tabs" to "make it safe to let go."</p>
+      <p><strong>What I learned:</strong> Going deep into one ordinary world teaches you more than surveying ten — the texture only shows up when you stop trying to fix it and start trying to understand it.</p>
     </div>
   </div>
 </section>
@@ -607,52 +620,51 @@
 <section class="case-study" id="case-thirtyyear">
   <div class="wrap">
     <p class="section-label">Case 03 · Week 4 · The 30-Year Object</p>
-    <h2>{{Your Project Title}}</h2>
+    <h2>The Box That Grows With You</h2>
     <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
-      {{One-sentence outcome. The object you designed to last 30 years — and why someone would keep it that long.}}
+      A modular, repairable carrying system designed to last a lifetime of moves — earning its 30 years through repairability and the sentiment of being there for every new chapter, from a dorm to a first apartment to a first house.
     </p>
 
     <div class="cs-meta">
-      <div><strong>My Role</strong>{{Solo / Partner}}</div>
-      <div><strong>Partner / Dyad</strong>{{name}}</div>
-      <div><strong>Timeline</strong>{{Week 4, 7 days}}</div>
-      <div><strong>Tools</strong>{{materials, sketches, model-making}}</div>
+      <div><strong>My Role</strong>Solo</div>
+      <div><strong>Research</strong>Family interview on 30-year objects</div>
+      <div><strong>Timeline</strong>Week 4, 7 days</div>
+      <div><strong>Tools</strong>Interview, brainstorming, sketching</div>
       <div><strong>Live / Demo</strong><a href="#">View →</a></div>
     </div>
 
     <div class="cs-block">
       <h3>Context</h3>
-      <p>{{What object did you pick to redesign for longevity? What's the current 3-year throwaway version?}}</p>
+      <p>I designed for the everyday carrying case — the moving box, duffel, or bag that we treat as disposable. The current version is a 3-year throwaway: it tears at the edges, can't be repaired, and gets recycled or tossed the moment it's inconvenient.</p>
     </div>
     <div class="cs-block">
       <h3>The Problem</h3>
-      <p>{{Emotional durability — what makes someone love an object enough to repair it? The challenge wasn't "make it harder," it was "make it matter."}}</p>
+      <p>The challenge wasn't "make it harder to break," it was "make it matter enough to keep." When I called my mom about her 30-year objects, almost everything that survived — a jade tree from a pilgrimage to Hong Kong, a Tissot watch from a post-grad backpacking trip, an inherited jade pendant — was kept for emotional reasons and barely used. I wanted to design something that earns longevity through <em>both</em> repair and sentiment.</p>
     </div>
     <div class="cs-block">
       <h3>Research</h3>
-      <p>{{Which 30-year-old objects did you study? Repair Cafe, Patagonia, Swarovski, Flyknit, PPR HOME — which principle did you borrow?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Reference objects you studied}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+      <p>I interviewed my mom about what she's held onto for decades and why, which surfaced the gap between objects that last and objects that get used. I looked at Kering's sustainability timeline for how durability gets built into a business, and drew form inspiration from IKEA bags and Lego bricks — things that last because individual parts are replaceable and reinforced.</p>
+      <figure class="cs-figure"><img src="img/case-03-mom-objects.png" alt="Five panels showing objects kept for decades — a Tissot watch, Legos, a stethoscope, dog tags, and letterman jackets — with the reasons each was kept."><figcaption>Figure 1. The objects my mom kept — and the reasons she kept them.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Process</h3>
-      <p>{{Material choices, joinery, modularity, repairability. What did you try that wouldn't hold up?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Material studies / prototypes}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+      <p>I brainstormed across categories that don't last — clothes, electronics, packaging — and kept returning to the cardboard box and carrying case. Sketching toward IKEA and Lego logic, I worked through flat zippered panels, reinforced edges, and attachable wheels, testing which combinations could actually hold weight without the edges giving out.</p>
     </div>
     <div class="cs-block">
       <h3>Key Decisions</h3>
-      <p>{{The 2–3 longevity moves: constraint as identity, durability as desirability, repair as understanding.}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Final object / prototype}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+      <p>The design centers on flat panels that zip together on all sides, with metal-reinforced edges so it can take heavier loads, and optional attachable wheels. Unzipped, the panels stack flat for compact storage or lay out as decor in different colors. The emotional move is the through-line: "we grow with you" — the same system moves you into college, your first apartment, and your first house, so it accumulates meaning the way my mom's heirlooms did.</p>
+      <figure class="cs-figure"><img src="img/case-03-longevity-repair.png" alt="Modular zippered cube in pastel panels — mint, peach, and lavender — with IKEA-style woven material and attachable handle."><figcaption>Figure 2. The modular carrying system.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Tools, Workflow &amp; Takeaway</h3>
-      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
-      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
-      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+      <p><strong>Tools:</strong> A family phone interview as primary research, plus sketching and material brainstorming.</p>
+      <p><strong>Workflow:</strong> Interview → categorize objects that don't last → sketch toward repairable, modular form → pressure-test which configurations stay structurally sound.</p>
+      <p><strong>Takeaway:</strong> Durability is as much emotional as physical. I'd reuse starting from a real interview about what people actually keep; next time I'd build a rough physical model to test the edge reinforcement.</p>
     </div>
     <div class="cs-outcome">
       <h4>Outcome &amp; Reflection</h4>
-      <p><strong>What changed:</strong> {{Would a real person keep this for 30 years? Why?}}</p>
-      <p><strong>What I learned:</strong> {{One honest sentence about durability.}}</p>
+      <p><strong>What changed:</strong> The concept reframes a "disposable" object as a companion across life stages — something repairable enough and sentimental enough that throwing it out would feel like a loss.</p>
+      <p><strong>What I learned:</strong> Most of what people keep from 30 years ago isn't used daily anymore — and with fast fashion and single-use everything, I'm not sure my generation will have a "haircomb that makes it 30 years" unless we design for keeping on purpose.</p>
     </div>
   </div>
 </section>
@@ -661,52 +673,51 @@
 <section class="case-study" id="case-senses">
   <div class="wrap">
     <p class="section-label">Case 04 · Week 5 · Invisible Senses</p>
-    <h2>{{Your Project Title}}</h2>
+    <h2>Bottling Lull Farm</h2>
     <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
-      {{One-sentence outcome. The place-based sensory prototype you designed — making the invisible perceptible.}}
+      My group recreated the smell of Lull Farm — a year-round New Hampshire farmers market I've visited every fall — blending four scents to make an invisible sense of place perceptible to someone who's never been there.
     </p>
 
     <div class="cs-meta">
-      <div><strong>My Role</strong>{{Partner dyad}}</div>
-      <div><strong>Partner</strong>{{name}}</div>
-      <div><strong>Timeline</strong>{{Week 5–6, delivered Monday Week 6}}</div>
-      <div><strong>Tools</strong>{{scent, sound, materials, lighting, site}}</div>
+      <div><strong>My Role</strong>Group project</div>
+      <div><strong>Place</strong>Lull Farm, Hollis, NH</div>
+      <div><strong>Timeline</strong>Weeks 5–6</div>
+      <div><strong>Tools</strong>Scent materials, blending, on-site sensory notes</div>
       <div><strong>Live / Demo</strong><a href="#">View →</a></div>
     </div>
 
     <div class="cs-block">
       <h3>Context</h3>
-      <p>{{Which place did you design for? What was its dominant sense — what was being ignored?}}</p>
+      <p>Lull Farm is five minutes from my house — a farmers market open year-round with an apple orchard and a sunflower field, and a bakery inside making fresh apple cider and apple cider donuts. It's a place I return to every fall, and its dominant sense isn't visual at all: it's the smell of wood, nature, and the orchard.</p>
     </div>
     <div class="cs-block">
       <h3>The Problem</h3>
-      <p>{{The non-visual feeling you wanted to create or amplify. (Use Desmet &amp; Hekkert — appraisal? association? meaning?)}}</p>
+      <p>I wanted to make the <em>feeling</em> of October in New Hampshire perceptible — the humidity, the light breeze, the apple-and-baked-goods air — to someone who had never set foot in the place. Scent and feel were the senses doing the emotional work, so those were what the prototype had to capture.</p>
     </div>
     <div class="cs-block">
       <h3>Research</h3>
-      <p>{{The 60-Second Experience exercise — what did you notice that no one talks about? Which references guided you (Jiro, Noma, Eliasson)?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{On-site sensory notes / mood board}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+      <p>I catalogued the place across senses: the feel of wood, produce, humidity, and a light breeze; the smell of something sweet but not sugary, apples and vanilla, fresh bread that isn't overpowering, antique wood that isn't musty; the sound of carts and the scanner and quiet talking; and the taste of those apple cider donuts. The point was to notice what no one usually names about the space.</p>
+      <figure class="cs-figure"><img src="img/case-04-sensory-design.png" alt="Lull Farm in autumn — pumpkins piled in front of a red farmhouse, corn stalks, and fall foliage under a clear blue sky."><figcaption>Figure 1. On-site sensory inventory.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Process</h3>
-      <p>{{Material tests, scent experiments, sound trials. What didn't read as intended?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Prototype iterations}}</div><figcaption>{{Figure 2.}}</figcaption></figure>
+      <p>We started by smelling every available scent and setting aside the ones that vaguely matched the place. Then we combined two or three at a time, checking whether they balanced or whether one overpowered the others. We landed on a blend of four — Labdanum, Coumarin 15%, Green cognac, and Rosemary — that balanced cleanly, with no single note dominating.</p>
     </div>
     <div class="cs-block">
       <h3>Key Decisions</h3>
-      <p>{{The 2–3 sensory choices that defined the prototype. Multisensory design — but which sense led?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Final prototype in place}}</div><figcaption>{{Figure 3.}}</figcaption></figure>
+      <p>Feel and smell led the design — they're the load-bearing senses for this place. The strongest evidence came when I described it to a classmate, Lane, who had never been: just naming the humidity, the light breeze, and the sundown light reminded her of a place near her grandparents'. The description alone transported her, which confirmed which sensory cues to prioritize in the blend.</p>
+      <figure class="cs-figure"><img src="img/case-04-scent-blend.png" alt="Four scent vials — Labdanum, Coumarin, Cognac, and Rosemary — with labeled blotter strips on an iridescent surface."><figcaption>Figure 2. The final four-scent blend.</figcaption></figure>
     </div>
     <div class="cs-block">
       <h3>Tools, Workflow &amp; Takeaway</h3>
-      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use.}}</p>
-      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.). For AI-assisted work, name the back-and-forth.}}</p>
-      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+      <p><strong>Tools:</strong> Raw scent materials for blending, plus a structured on-site sensory inventory across feel, smell, sound, and taste.</p>
+      <p><strong>Workflow:</strong> Sensory inventory → isolate matching scents → combine and balance in small batches → test the evoked feeling on someone unfamiliar with the place.</p>
+      <p><strong>Takeaway:</strong> A few balanced notes evoke a place better than a literal reconstruction. I'd reuse testing the prototype on someone who's never been; next time I'd layer in sound to deepen the immersion.</p>
     </div>
     <div class="cs-outcome">
       <h4>Outcome &amp; Reflection</h4>
-      <p><strong>What changed:</strong> {{How did people respond when they encountered it? What did they say?}}</p>
-      <p><strong>What I learned:</strong> {{One honest sentence about designing for a sense you can't see.}}</p>
+      <p><strong>What changed:</strong> A description and a four-scent blend were enough to carry someone to a place they'd never visited — the invisible sense did the work that a photo couldn't.</p>
+      <p><strong>What I learned:</strong> I'd never noticed the power of scent and memory until this — the way my mom's citrus perfume or my dad's lavender instantly brings them to mind is exactly the mechanism a designed scent can borrow.</p>
     </div>
   </div>
 </section>
@@ -785,66 +796,66 @@
 <section class="case-study" id="case-final">
   <div class="wrap">
     <p class="section-label">Case 06 · Weeks 7–10 · Final Project (V1 → V2 → V3)</p>
-    <h2>{{Final Project Title}}</h2>
+    <h2>Build-A-Box</h2>
     <p class="case-line" style="font-size:20px; max-width:720px; color:var(--muted); margin-bottom:32px;">
-      {{One-sentence outcome. The problem your final project solved, and what the three-version arc taught you.}}
+      Moving boxes designed to be rebuilt into furniture — a coffee table, shelves, even a chandelier — so the cardboard from a move gets a second life instead of being recycled or taking up space. The arc taught me that the most important design decision was knowing when to scrap the idea entirely.
     </p>
 
     <div class="cs-meta">
-      <div><strong>My Role</strong>{{Solo / Partner dyad}}</div>
-      <div><strong>Partner</strong>{{name}}</div>
+      <div><strong>My Role</strong>Co-designer (with McKenzi)</div>
+      <div><strong>Partner</strong>McKenzi</div>
       <div><strong>Timeline</strong>Weeks 7–10 · 4 weeks · 3 versions</div>
-      <div><strong>Tools</strong>{{tools across all versions}}</div>
-      <div><strong>Live / Demo</strong><a href="#">View V3 →</a></div>
+      <div><strong>Tools</strong>Fabric/foamcore, cardboard prototyping, Claude &amp; ChatGPT, Vercel</div>
+      <div><strong>Live / Demo</strong><a href="https://build-a-box-site.vercel.app/" target="_blank" rel="noopener">View V3 →</a></div>
     </div>
 
     <div class="cs-block">
       <h3>Context &amp; Problem</h3>
-      <p>{{The framing that held across all three versions. What problem were you returning to each week?}}</p>
+      <p>McKenzi and I kept returning to the same question: how do you extend the life of something built to be thrown away? We started aimed at reusable, modular shipping boxes, but the framing that actually held was broader — sustainability and practicality for people in transition, especially renters moving into a new home with a pile of cardboard they're about to recycle.</p>
     </div>
 
     <div class="cs-block">
       <h3>Research</h3>
-      <p>{{Research that informed V1, plus what you continued to learn during V2 and V3.}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{Research artifacts spanning the arc}}</div><figcaption>{{Figure 1.}}</figcaption></figure>
+      <p>We pressure-tested materials and structure with help from a class mentor, Nick, and used Claude and ChatGPT as a fast first pass on material options — handing them the problem and our current idea and asking what we were missing. The real insight came from lived references: ENGS 2, where Dartmouth students build a cardboard chair, and my mom, who built cardboard furniture (mostly chairs) when she moved into her first apartment.</p>
+      <figure class="cs-figure"><img src="img/case-06-material-references.png" alt="Cardboard desk and chair set — a reference for furniture built from corrugated cardboard panels with tab-and-slot construction."><figcaption>Figure 1. Material tests and the cardboard-furniture references that reframed the project.</figcaption></figure>
     </div>
 
     <!-- V1 sub-section -->
     <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px; margin-top:32px;">
       <p class="section-label" style="margin-bottom:8px;">V1 · Week 7 · Designing Useful Friction</p>
       <h3>The First Attempt</h3>
-      <p>{{What did V1 look like? Where did you put useful friction? Which Pixar Braintrust / Sutton &amp; Rao concepts shaped it? What didn't land?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{V1 artifact}}</div><figcaption>{{Figure 2. V1 — what it was.}}</figcaption></figure>
+      <p>V1 was a reusable, modular box built from fabric over foamcore — we sewed the fabric, then switched to stapling for speed, and added zippers along the sides so panels could attach to each other and break down flat. The friction showed up fast: the edges weren't structurally sound, zippers couldn't carry weight, and fabric lacked the durability we'd promised. We considered magnets for the corners but ran into problems stacking boxes. Talking it through with Nick, it was clear the materials were fighting the goal.</p>
+      <figure class="cs-figure"><img src="img/case-06-v1-modular-box.png" alt="V1 prototype — three fabric-covered foamcore panels joined with zippers, forming a modular box corner."><figcaption>Figure 2. V1 — the modular fabric-and-foamcore box.</figcaption></figure>
     </div>
 
     <!-- V2 sub-section -->
     <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px; margin-top:32px;">
       <p class="section-label" style="margin-bottom:8px;">V2 · Week 8 · What Deserves More?</p>
       <h3>The Ugly Darling</h3>
-      <p>{{What did V2 add that V1 couldn't have — a new SEMINAL system, audience, scale, or material? Which ugly darling did you give more room? What did you let go of from V1?}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{V2 artifact}}</div><figcaption>{{Figure 3. V2 — what changed.}}</figcaption></figure>
+      <p>This is where the "Ugly Darling" concept earned its place: after iterating the modular box, neither of us actually loved it, so we scrapped it entirely. We went back to our real goals — sustainability and practicality — and landed somewhere completely different: cardboard moving boxes that ship with hinges, velcro, and connectors so that after a move, the box becomes a chair, shelves, or a chandelier instead of trash. Small, medium, large, and extra-large boxes map to specific builds, with "mystery boxes" where you pick a size and the box becomes a surprise item.</p>
+      <figure class="cs-figure"><img src="img/case-06-v2-cardboard-pivot.png" alt="V2 cardboard prototype — interlocking corrugated panels forming an open geometric structure on a cutting mat."><figcaption>Figure 3. V2 — the pivot to cardboard-into-furniture.</figcaption></figure>
     </div>
 
     <!-- V3 sub-section -->
     <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px; margin-top:32px;">
       <p class="section-label" style="margin-bottom:8px;">V3 · Weeks 9–10 · Less But Better</p>
       <h3>The Final Edit</h3>
-      <p>{{What did V3 cut from V2? Obsessive reduction — the edit as design. What survived three rounds because it was load-bearing? Apply Schön (reflection-in-action) and Duarte (audience as hero).}}</p>
-      <figure class="cs-figure"><div class="cs-figure-placeholder">{{V3 final artifact — the version that can stand on its own}}</div><figcaption>{{Figure 4. V3 — what stayed.}}</figcaption></figure>
+      <p>For V3, McKenzi and I built both a <a href="https://build-a-box-site.vercel.app/" target="_blank" rel="noopener">website</a> and a working prototype kit. The boxes carry printed fold-and-cut lines based on which kit you buy, and each kit comes with everything you need — a box cutter, connectors, paint. As proof, we built a small coffee table / footstool from leftover cardboard (from Couch I); even with thin cardboard it held at least five pounds, and a production version would use thicker stock. What survived all three rounds was the core idea: lengthen a box's life by turning it into something you'd keep.</p>
+      <figure class="cs-figure"><iframe class="cs-figure-site" src="https://build-a-box-site.vercel.app/" title="Build-A-Box — Move in. Build up."></iframe><figcaption>Figure 4. V3 — the Build-A-Box site. <a href="https://build-a-box-site.vercel.app/" target="_blank" rel="noopener">Open in a new tab →</a></figcaption></figure>
     </div>
 
     <div class="cs-block" style="border-top:1px solid var(--line); padding-top:32px;">
       <h3>Tools, Workflow &amp; Takeaway across V1 → V2 → V3</h3>
-      <p><strong>Tools:</strong> {{1–2 lines. Which tools you used, evaluated, or deliberately didn't use across the three versions. Note any tool swaps between versions.}}</p>
-      <p><strong>Workflow:</strong> {{1–2 lines. How you moved between tools across stages (ideation · iteration · prototype building · functional or visual adjustments · etc.) — and how that workflow itself evolved V1 → V2 → V3. For AI-assisted work, name the back-and-forth.}}</p>
-      <p><strong>Takeaway:</strong> {{1–2 lines. What you'd reuse from this workflow / what you'd change.}}</p>
+      <p><strong>Tools:</strong> V1 leaned on fabric, foamcore, and zippers; V2 explored PVC, acrylic, wood, and neodymium magnets before we committed to cardboard; V3 added a built website (deployed on Vercel) and a hand-built furniture prototype. Claude and ChatGPT were a first-pass sounding board for materials throughout.</p>
+      <p><strong>Workflow:</strong> Build → test for structural integrity → get outside feedback → reassess goals. The biggest workflow shift was learning to stop iterating on something that wasn't working and restart from intent — the move from V1 to V2 was a full pivot, not a refinement.</p>
+      <p><strong>Takeaway:</strong> I'd reuse the habit of checking each version against our original goals rather than against the last version. What I'd change is starting physical material tests earlier, before investing in a direction.</p>
     </div>
 
     <div class="cs-outcome">
       <h4>Outcome &amp; Reflection on the Arc</h4>
-      <p><strong>What changed across V1 → V2 → V3:</strong> {{Name the through-line and the cuts.}}</p>
-      <p><strong>What I learned about iteration:</strong> {{One honest sentence on what V3 made possible that V1 couldn't see.}}</p>
-      <p><strong>What V3 stands on its own as:</strong> {{Frame V3 for someone who never saw V1 or V2.}}</p>
+      <p><strong>What changed across V1 → V2 → V3:</strong> We let go of the modular box entirely when it stopped exciting us, and rebuilt around sustainability and practicality — which led to Build-A-Box and a prototype that came out far better than I expected.</p>
+      <p><strong>What I learned about iteration:</strong> Iterating isn't only refining; sometimes the most intentional move is taking a step back, re-asking what you're actually trying to accomplish, and starting from scratch.</p>
+      <p><strong>What V3 stands on its own as:</strong> A sustainability-focused moving-and-home-goods concept — order a box, move with it, then build it into furniture — with a live site and a prototype that proves the cardboard can actually hold up.</p>
     </div>
   </div>
 </section>
@@ -855,11 +866,11 @@
     <p class="section-label">About</p>
     <h2>Who I am.</h2>
     <div class="about-grid">
-      <div class="about-photo">{{Portrait photo, 4:5}}</div>
+      <div class="about-photo"><img src="img/about-portrait.png" alt="Ashley Goh on a balcony in a white summer dress, smiling at the camera."></div>
       <div class="about-text">
-        <p>{{Paragraph 1: who you are, what kinds of problems pull you in. Be specific — "designing for people who cook on a budget" lands better than "user-centered design."}}</p>
-        <p>{{Paragraph 2: how you work — methods, collaborators, the kind of team you do your best work with.}}</p>
-        <p>{{Paragraph 3: who you are when you're not designing — one or two real things. This is where personality belongs.}}</p>
+        <p>I'm a computer science and design student at Dartmouth, drawn to problems where breaking something down reveals a way to make it easier or more playful. I'm most curious about the everyday objects and systems people use without thinking — a hot sauce bottle, a pile of moving boxes, a hundred open browser tabs — and what changes when you take them seriously.</p>
+        <p>I work by going deep before going wide: a real interview, a place I actually know, one person's genuine ritual. I'm not afraid to scrap an idea I've stopped believing in and restart from intent. I use AI as a prioritization layer (what my honors thesis is about), but I trust the texture that only shows up in lived references and conversations.</p>
+        <p>Outside of designing, I'm a data-curious person who waits all year for Spotify Wrapped and has worn an Apple Watch since sixth grade. I always have a carabiner and a Swiss Army knife in my backpack whereever I go in case I spontaneously go on a hike, and every fall I end up at Lull Farm in Hollis, NH for apple cider donuts.</p>
       </div>
     </div>
   </div>
@@ -880,12 +891,12 @@
 
     <!-- The drawing itself, side by side with its legend -->
     <div class="inspiration">
-      <div class="insp-placeholder">{{Photographed hand-drawn 8×10, textured paper. Show both sides — Side A (Week 1, before) and Side B (Week 10, after).}}</div>
+      <img src="img/inspiration-dear-data.png" alt="Hand-drawn Dear Data visualization on textured paper — Side A (Week 1, before) and Side B (Week 10, after), showing 20 favorite designs with a legend for tags, frequency, and medium.">
       <div class="insp-text">
-        <p>{{A hand-drawn 8×10 data visualization of my inspiration collection. Side A is what you started the course. Side B is what's been added by the end. 20 designs that inspire you before and after, tagged by class concepts and SEMINAL systems. The drawing is the felt version; the table below is the legible version.}}</p>
+        <p>A hand-drawn data visualization of my inspiration collection, done in black and purple Sharpie (a little hard to distinguish on camera). Scrolling through Federica Fragapane's work pushed me toward a more geometric form that invites people to ask what the shapes mean.</p>
         <div class="insp-legend">
           <strong>Legend</strong><br>
-          {{How to read the drawing: shape = …, color = …, line weight = …, position = …}}
+          Each line is one design, radiating from the center. Line length = when I first encountered it (rings mark 2010 and 2020). Purple dot = presence of a SEMINAL tag, black dot = absence, read outward in S·E·M·I·N·A·L order. Distance between lines = frequency of use. Direction encodes form: counter-clockwise = physical, straight = physical + virtual, clockwise = virtual.
         </div>
       </div>
     </div>
@@ -893,7 +904,7 @@
     <!-- The 40-design table — two sides, 20 each -->
     <h3 style="margin-top:64px;">The Collection — 40 Designs</h3>
     <p style="font-size:14px; color:var(--muted); margin-bottom:8px; max-width:720px;">
-      40 rows total: 20 that inspired you at the <strong>start of the course</strong> (Side A · Week 1) and 20 added by the <strong>end</strong> (Side B · Week 10). <strong>SEMINAL</strong> = which system letter(s) the design embodies (S · E · M · I · N · A · L · can be more than one). <strong>Concept tags</strong> are optional — pull from the reference below if a concept jumped out.
+      40 rows total: 20 designs that inspired me at the <strong>start of the course</strong> (Side A · Week 1) and 20 added by the <strong>end</strong> (Side B · Week 10). Each row carries the same data my hand-drawn piece encodes: its <strong>SEMINAL</strong> system letters (S · E · M · I · N · A · L), how often I use it, whether it's physical, virtual, or a mix, and the year I first encountered it.
     </p>
 
     <details class="concept-ref">
@@ -993,32 +1004,32 @@
         <tr>
           <th>#</th>
           <th>Design / Inspiration</th>
-          <th>What inspires me about it</th>
           <th>SEMINAL</th>
-          <th>Concept tags</th>
+          <th>Frequency</th>
+          <th>Form · First seen</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td class="num">01</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{e.g., M · I}}</td><td>{{}}</td></tr>
-        <tr><td class="num">02</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">03</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">04</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">05</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">06</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">07</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">08</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">09</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">10</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">11</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">12</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">13</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">14</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">15</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">16</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">17</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">18</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">19</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">20</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">01</td><td>Legos</td><td class="seminal">S · M · I · A · L</td><td>Sometimes</td><td>Physical · 2008</td></tr>
+        <tr><td class="num">02</td><td>Bicycle playing cards</td><td class="seminal">M · I · L</td><td>Sometimes</td><td>Physical · 2008</td></tr>
+        <tr><td class="num">03</td><td>Skis</td><td class="seminal">S · N</td><td>Sometimes</td><td>Physical · 2008</td></tr>
+        <tr><td class="num">04</td><td>Pilot G2 pens</td><td class="seminal">S · M · I · A · L</td><td>Most days</td><td>Physical · 2010</td></tr>
+        <tr><td class="num">05</td><td>Mechanical pencils</td><td class="seminal">S · M · I · A · L</td><td>Most days</td><td>Physical · 2010</td></tr>
+        <tr><td class="num">06</td><td>Sticky notes</td><td class="seminal">S · M · I · A</td><td>Most days</td><td>Physical · 2010</td></tr>
+        <tr><td class="num">07</td><td>Bean bag chairs</td><td class="seminal">S · M · I · A</td><td>Rarely</td><td>Physical · 2010</td></tr>
+        <tr><td class="num">08</td><td>Projectors</td><td class="seminal">I · A</td><td>Sometimes</td><td>Mix · 2010</td></tr>
+        <tr><td class="num">09</td><td>Floor-to-ceiling windows</td><td class="seminal">S · I</td><td>Never</td><td>Physical · 2012</td></tr>
+        <tr><td class="num">10</td><td>Carabiners</td><td class="seminal">S · N · A · L</td><td>Most days</td><td>Physical · 2012</td></tr>
+        <tr><td class="num">11</td><td>Orthokeratology lenses</td><td class="seminal">S · E · M · I · N · A · L</td><td>Every day</td><td>Physical · 2012</td></tr>
+        <tr><td class="num">12</td><td>Stand mixer</td><td class="seminal">S · I · N · A</td><td>Rarely</td><td>Mix · 2014</td></tr>
+        <tr><td class="num">13</td><td>Speed Rubik's Cubes</td><td class="seminal">S · I</td><td>Rarely</td><td>Physical · 2014</td></tr>
+        <tr><td class="num">14</td><td>3D printers</td><td class="seminal">E · M · A</td><td>Rarely</td><td>Mix · 2014</td></tr>
+        <tr><td class="num">15</td><td>Swiss army knife</td><td class="seminal">S · N · A · L</td><td>Sometimes</td><td>Physical · 2015</td></tr>
+        <tr><td class="num">16</td><td>Apple Pay</td><td class="seminal">E · I · A</td><td>Most days</td><td>Virtual · 2018</td></tr>
+        <tr><td class="num">17</td><td>Weighted blankets</td><td class="seminal">S · M · I</td><td>Every day</td><td>Physical · 2020</td></tr>
+        <tr><td class="num">18</td><td>Nespresso</td><td class="seminal">S · E · I · N</td><td>Every day</td><td>Mix · 2024</td></tr>
+        <tr><td class="num">19</td><td>F1 cars</td><td class="seminal">S · M · I · A</td><td>Never</td><td>Mix · 2024</td></tr>
+        <tr><td class="num">20</td><td>Cursor</td><td class="seminal">S · I · A</td><td>Most days</td><td>Virtual · 2025</td></tr>
       </tbody>
     </table>
 
@@ -1028,37 +1039,37 @@
         <tr>
           <th>#</th>
           <th>Design / Inspiration</th>
-          <th>What inspires me about it</th>
           <th>SEMINAL</th>
-          <th>Concept tags</th>
+          <th>Frequency</th>
+          <th>Form · First seen</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td class="num">21</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{e.g., Going Deep}}</td></tr>
-        <tr><td class="num">22</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">23</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">24</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">25</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">26</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">27</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">28</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">29</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">30</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">31</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">32</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">33</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">34</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">35</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">36</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">37</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">38</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">39</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
-        <tr><td class="num">40</td><td>{{Design name}}</td><td>{{One line.}}</td><td class="seminal">{{}}</td><td>{{}}</td></tr>
+        <tr><td class="num">21</td><td>Chopsticks</td><td class="seminal">S · E · M · I · N · A · L</td><td>Most days</td><td>Physical · 2006</td></tr>
+        <tr><td class="num">22</td><td>Dry erase markers</td><td class="seminal">S · M · I · A</td><td>Sometimes</td><td>Physical · 2008</td></tr>
+        <tr><td class="num">23</td><td>Nalgene</td><td class="seminal">S · M · N · A · L</td><td>Every day</td><td>Physical · 2010</td></tr>
+        <tr><td class="num">24</td><td>Mason jars</td><td class="seminal">S · E · M · I · N · A · L</td><td>Most days</td><td>Physical · 2010</td></tr>
+        <tr><td class="num">25</td><td>Packing cubes</td><td class="seminal">S · E · M · I · A · L</td><td>Rarely</td><td>Physical · 2014</td></tr>
+        <tr><td class="num">26</td><td>Self-checkout</td><td class="seminal">S · E · I · A · L</td><td>Sometimes</td><td>Physical · 2015</td></tr>
+        <tr><td class="num">27</td><td>Keyboard shortcuts</td><td class="seminal">S · E · I · A · L</td><td>Every day</td><td>Virtual · 2016</td></tr>
+        <tr><td class="num">28</td><td>Matcha whisk</td><td class="seminal">S · E · M · I · N · A · L</td><td>Sometimes</td><td>Physical · 2018</td></tr>
+        <tr><td class="num">29</td><td>Burrata</td><td class="seminal">S · M · I · N</td><td>Sometimes</td><td>Physical · 2018</td></tr>
+        <tr><td class="num">30</td><td>QR codes</td><td class="seminal">S · M · A · L</td><td>Sometimes</td><td>Virtual · 2018</td></tr>
+        <tr><td class="num">31</td><td>Reminders app</td><td class="seminal">S · A · L</td><td>Every day</td><td>Virtual · 2018</td></tr>
+        <tr><td class="num">32</td><td>Gore-Tex</td><td class="seminal">S · E · M · I · N · A · L</td><td>Sometimes</td><td>Physical · 2019</td></tr>
+        <tr><td class="num">33</td><td>Birkenstocks</td><td class="seminal">S · M · I · L</td><td>Most days</td><td>Physical · 2019</td></tr>
+        <tr><td class="num">34</td><td>AirTags</td><td class="seminal">S · M · I · A</td><td>Every day</td><td>Mix · 2020</td></tr>
+        <tr><td class="num">35</td><td>Blundstones</td><td class="seminal">S · M · I · L</td><td>Most days</td><td>Physical · 2022</td></tr>
+        <tr><td class="num">36</td><td>Vespa</td><td class="seminal">S · M · I · L</td><td>Never</td><td>Mix · 2022</td></tr>
+        <tr><td class="num">37</td><td>AirPods Max</td><td class="seminal">S · M · I · A</td><td>Most days</td><td>Mix · 2025</td></tr>
+        <tr><td class="num">38</td><td>Cruise control</td><td class="seminal">S · E · I · A</td><td>Rarely</td><td>Mix · 2026</td></tr>
+        <tr><td class="num">39</td><td>VS Tease perfume</td><td class="seminal">S · M · I · L</td><td>Every day</td><td>Physical · 2026</td></tr>
+        <tr><td class="num">40</td><td>Raspberry Pi</td><td class="seminal">S · M · A</td><td>Rarely</td><td>Mix · 2026</td></tr>
       </tbody>
     </table>
 
     <p style="font-size:14px; color:var(--muted); margin-top:24px;">
-      <strong>What the pattern reveals:</strong> {{1–3 sentences. How did your collection shift from Side A to Side B? Which SEMINAL systems cluster on each side? Which letters never show up? What does the difference say about how your eye changed?}}
+      <strong>What the pattern reveals:</strong> Across my top designs, <strong>S</strong> (how the experience or service is designed) and <strong>A</strong> (how smart or useful the technology is) were by far the most common tags — I'm pulled toward things that are both thoughtfully experienced and genuinely useful. <strong>E</strong> (how it handles energy, waste, or resources) barely showed up, which surprised me and made me more conscious of the environmental cost of what I use, especially as a CS major aware of AI's water consumption. By Side B, that gap had closed: energy and resource use (E) shows up far more often — in chopsticks, mason jars, packing cubes, self-checkout, keyboard shortcuts, the matcha whisk, Gore-Tex, and cruise control — and more of my picks now carry the full S·E·M·I·N·A·L range, which tells me the course trained my eye to notice sustainability and whole-system design where I used to overlook it. {{Edit this to add your own read of the shift.}}
     </p>
   </div>
 </section>
@@ -1068,16 +1079,16 @@
   <div class="wrap">
     <h2>Let's connect.</h2>
     <div class="channels">
-      <a href="mailto:{{you@email.com}}">Email</a>
-      <a href="https://linkedin.com/in/{{handle}}" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/{{handle}}" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:ashleyqgoh@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/ashleyqgoh" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/ashleygoh1001" target="_blank" rel="noopener">GitHub</a>
       <a href="/resume.pdf">Résumé (PDF)</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">© {{Year}} {{Your Name}}. Built with the Design Survivor portfolio template.</div>
+  <div class="wrap">© 2026 Ashley Goh. Built with the Design Survivor portfolio template.</div>
 </footer>
 
 </body>
